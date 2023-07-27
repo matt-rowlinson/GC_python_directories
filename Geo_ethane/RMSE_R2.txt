@@ -1,0 +1,180 @@
+Load reference GC
+Load development GC
+propane_datasets/c3h8_abp_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_alt_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_amt_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_amy_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_asc_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_ask_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_azr_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_bal_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_bkt_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_bmw_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_brw_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_bsc_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_cba_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_cgo_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_cpt_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_crz_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_eic_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_gmi_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_hba_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_hpb_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_ice_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_izo_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_key_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_kum_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_lef_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_llb_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_mex_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_mhd_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_mid_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_mkn_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_mlo_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_nat_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_oxk_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_pal_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_psa_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_rpb_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_sey_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_sgp_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_shm_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_smo_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_spo_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_sum_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_syo_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_tap_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_thd_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_tik_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_ush_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_uta_surface-flask_1_arl_event.txt
+propane_datasets/c3h8_zep_surface-flask_1_arl_event.txt
+ASC 
+ RMSE= 19.133 19.883 ppb 
+ R2= -0.173 -0.494 %
+BKT 
+ RMSE= 846.256 836.799 ppb 
+ R2= 0.121 0.135 %
+CGO 
+ RMSE= 109.848 108.019 ppb 
+ R2= -0.014 0.057 %
+CPT 
+ RMSE= 223.425 174.553 ppb 
+ R2= -0.463 -0.107 %
+CRZ 
+ RMSE= 41.054 16.983 ppb 
+ R2= -6.001 -0.218 %
+EIC 
+ RMSE= 513.064 519.072 ppb 
+ R2= 0.005 0.001 %
+NAT 
+ RMSE= 286.911 245.722 ppb 
+ R2= -0.005 -0.009 %
+SEY 
+ RMSE= 177.104 178.248 ppb 
+ R2= -0.04 -0.004 %
+SMO 
+ RMSE= 15.896 17.08 ppb 
+ R2= -0.349 0.067 %
+USH 
+ RMSE= 1523.797 1543.117 ppb 
+ R2= 0.03 0.011 %
+ALT 
+ RMSE= 290.143 414.824 ppb 
+ R2= 0.763 0.57 %
+BRW 
+ RMSE= 388.245 402.511 ppb 
+ R2= 0.6 0.475 %
+HBA 
+ RMSE= 70.392 70.68 ppb 
+ R2= -0.056 -0.002 %
+ICE 
+ RMSE= 218.349 365.914 ppb 
+ R2= 0.741 0.557 %
+PAL 
+ RMSE= 432.356 417.875 ppb 
+ R2= 0.316 0.566 %
+PSA 
+ RMSE= 95.666 96.555 ppb 
+ R2= -0.037 0.011 %
+SPO 
+ RMSE= 15.244 22.141 ppb 
+ R2= 0.346 0.497 %
+SUM 
+ RMSE= 153.902 318.525 ppb 
+ R2= 0.891 0.646 %
+SYO 
+ RMSE= 11.785 10.583 ppb 
+ R2= 0.171 0.876 %
+TIK 
+ RMSE= 473.913 539.719 ppb 
+ R2= 0.595 0.41 %
+ZEP 
+ RMSE= 288.056 459.081 ppb 
+ R2= 0.739 0.526 %
+BMW 
+ RMSE= 538.145 692.906 ppb 
+ R2= 0.34 0.203 %
+CBA 
+ RMSE= 172.57 280.342 ppb 
+ R2= 0.838 0.571 %
+KEY 
+ RMSE= 966.471 1047.617 ppb 
+ R2= 0.13 0.059 %
+KUM 
+ RMSE= 103.244 142.378 ppb 
+ R2= 0.512 0.403 %
+LEF 
+ RMSE= 1233.309 1592.645 ppb 
+ R2= 0.073 0.059 %
+MEX 
+ RMSE= 507.053 506.244 ppb 
+ R2= 0.049 0.029 %
+MID 
+ RMSE= 117.567 204.278 ppb 
+ R2= 0.786 0.639 %
+MLO 
+ RMSE= 77.651 53.957 ppb 
+ R2= -0.867 0.309 %
+RPB 
+ RMSE= 200.851 204.716 ppb 
+ R2= 0.039 0.058 %
+SGP 
+ RMSE= 7031.638 7049.802 ppb 
+ R2= 0.018 0.021 %
+THD 
+ RMSE= 156.07 242.12 ppb 
+ R2= 0.657 -0.001 %
+UTA 
+ RMSE= 261.304 317.238 ppb 
+ R2= 0.405 0.321 %
+AZR 
+ RMSE= 202.296 299.836 ppb 
+ R2= 0.566 0.375 %
+HPB 
+ RMSE= 381.185 965.826 ppb 
+ R2= 0.34 -1.766 %
+MHD 
+ RMSE= 249.992 373.893 ppb 
+ R2= 0.555 0.515 %
+OXK 
+ RMSE= 960.715 441.204 ppb 
+ R2= -1.831 -0.296 %
+ASK 
+ RMSE= 446.874 449.506 ppb 
+ R2= -0.051 0.005 %
+IZO 
+ RMSE= 214.0 125.528 ppb 
+ R2= -0.546 0.646 %
+AMY 
+ RMSE= 1004.347 1125.427 ppb 
+ R2= 0.074 0.056 %
+GMI 
+ RMSE= 700.779 700.664 ppb 
+ R2= -0.036 -0.015 %
+SHM 
+ RMSE= 186.45 314.208 ppb 
+ R2= 0.829 0.558 %
+TAP 
+ RMSE= 3776.959 3842.287 ppb 
+ R2= -0.003 0.005 %

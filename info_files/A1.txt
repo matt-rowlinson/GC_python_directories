@@ -1,0 +1,635 @@
+netcdf GEOSFP.20180101.A1.025x03125 {
+dimensions:
+	time = 24 ;
+	lat = 721 ;
+	lon = 1152 ;
+variables:
+	int time(time) ;
+		time:calendar = "gregorian" ;
+		time:long_name = "time" ;
+		time:units = "minutes since 2018-01-01 00:00:00.0" ;
+		time:delta_t = "0000-00-00 01:00:00" ;
+		time:begin_date = "20180101" ;
+		time:begin_time = "000000" ;
+		time:time_increment = "010000" ;
+	float lat(lat) ;
+		lat:long_name = "latitude" ;
+		lat:units = "degrees_north" ;
+	float lon(lon) ;
+		lon:long_name = "longitude" ;
+		lon:units = "degrees_east" ;
+	float ALBEDO(time, lat, lon) ;
+		ALBEDO:long_name = "Surface albedo" ;
+		ALBEDO:units = "1" ;
+		ALBEDO:gamap_category = "GMAO-2D" ;
+		ALBEDO:missing_value = 1.e+15f ;
+		ALBEDO:_FillValue = 1.e+15f ;
+		ALBEDO:scale_factor = 1.f ;
+		ALBEDO:add_offset = 0.f ;
+	float CLDTOT(time, lat, lon) ;
+		CLDTOT:long_name = "Total cloud fraction" ;
+		CLDTOT:units = "1" ;
+		CLDTOT:gamap_category = "GMAO-2D" ;
+		CLDTOT:missing_value = 1.e+15f ;
+		CLDTOT:_FillValue = 1.e+15f ;
+		CLDTOT:scale_factor = 1.f ;
+		CLDTOT:add_offset = 0.f ;
+	float EFLUX(time, lat, lon) ;
+		EFLUX:long_name = "Latent heat flux (positive upward)" ;
+		EFLUX:units = "W m-2" ;
+		EFLUX:gamap_category = "GMAO-2D" ;
+		EFLUX:missing_value = 1.e+15f ;
+		EFLUX:_FillValue = 1.e+15f ;
+		EFLUX:scale_factor = 1.f ;
+		EFLUX:add_offset = 0.f ;
+	float EVAP(time, lat, lon) ;
+		EVAP:long_name = "Surface evaporation" ;
+		EVAP:units = "kg m-2 s-2" ;
+		EVAP:gamap_category = "GMAO-2D" ;
+		EVAP:missing_value = 1.e+15f ;
+		EVAP:_FillValue = 1.e+15f ;
+		EVAP:scale_factor = 1.f ;
+		EVAP:add_offset = 0.f ;
+	float FRSEAICE(time, lat, lon) ;
+		FRSEAICE:long_name = "Fraction of sea ice on surface" ;
+		FRSEAICE:units = "1" ;
+		FRSEAICE:gamap_category = "GMAO-2D" ;
+		FRSEAICE:missing_value = 1.e+15f ;
+		FRSEAICE:_FillValue = 1.e+15f ;
+		FRSEAICE:scale_factor = 1.f ;
+		FRSEAICE:add_offset = 0.f ;
+	float FRSNO(time, lat, lon) ;
+		FRSNO:long_name = "Fractional snow-covered area" ;
+		FRSNO:units = "1" ;
+		FRSNO:gamap_category = "GMAO-2D" ;
+		FRSNO:missing_value = 1.e+15f ;
+		FRSNO:_FillValue = 1.e+15f ;
+		FRSNO:scale_factor = 1.f ;
+		FRSNO:add_offset = 0.f ;
+	float GRN(time, lat, lon) ;
+		GRN:long_name = "Vegetation greenness fraction" ;
+		GRN:units = "1" ;
+		GRN:gamap_category = "GMAO-2D" ;
+		GRN:missing_value = 1.e+15f ;
+		GRN:_FillValue = 1.e+15f ;
+		GRN:scale_factor = 1.f ;
+		GRN:add_offset = 0.f ;
+	float GWETROOT(time, lat, lon) ;
+		GWETROOT:long_name = "Root zone soil wetness" ;
+		GWETROOT:units = "1" ;
+		GWETROOT:gamap_category = "GMAO-2D" ;
+		GWETROOT:missing_value = 1.e+15f ;
+		GWETROOT:_FillValue = 1.e+15f ;
+		GWETROOT:scale_factor = 1.f ;
+		GWETROOT:add_offset = 0.f ;
+	float GWETTOP(time, lat, lon) ;
+		GWETTOP:long_name = "Top soil wetness" ;
+		GWETTOP:units = "1" ;
+		GWETTOP:gamap_category = "GMAO-2D" ;
+		GWETTOP:missing_value = 1.e+15f ;
+		GWETTOP:_FillValue = 1.e+15f ;
+		GWETTOP:scale_factor = 1.f ;
+		GWETTOP:add_offset = 0.f ;
+	float HFLUX(time, lat, lon) ;
+		HFLUX:long_name = "Sensible heat flux (positive upward)" ;
+		HFLUX:units = "W m-2" ;
+		HFLUX:gamap_category = "GMAO-2D" ;
+		HFLUX:missing_value = 1.e+15f ;
+		HFLUX:_FillValue = 1.e+15f ;
+		HFLUX:scale_factor = 1.f ;
+		HFLUX:add_offset = 0.f ;
+	float LAI(time, lat, lon) ;
+		LAI:long_name = "Leaf area index" ;
+		LAI:units = "m2 m-2" ;
+		LAI:gamap_category = "GMAO-2D" ;
+		LAI:missing_value = 1.e+15f ;
+		LAI:_FillValue = 1.e+15f ;
+		LAI:scale_factor = 1.f ;
+		LAI:add_offset = 0.f ;
+	float LWI(time, lat, lon) ;
+		LWI:long_name = "Land/water/ice flags" ;
+		LWI:units = "1" ;
+		LWI:gamap_category = "GMAO-2D" ;
+		LWI:missing_value = 1.e+15f ;
+		LWI:_FillValue = 1.e+15f ;
+		LWI:scale_factor = 1.f ;
+		LWI:add_offset = 0.f ;
+	float LWGNT(time, lat, lon) ;
+		LWGNT:long_name = "Net longwave flux at the ground" ;
+		LWGNT:units = "W m-2" ;
+		LWGNT:gamap_category = "GMAO-2D" ;
+		LWGNT:missing_value = 1.e+15f ;
+		LWGNT:_FillValue = 1.e+15f ;
+		LWGNT:scale_factor = 1.f ;
+		LWGNT:add_offset = 0.f ;
+	float LWTUP(time, lat, lon) ;
+		LWTUP:long_name = "Upward longwave flux at top of atmosphere (TOA)" ;
+		LWTUP:units = "W m-2" ;
+		LWTUP:gamap_category = "GMAO-2D" ;
+		LWTUP:missing_value = 1.e+15f ;
+		LWTUP:_FillValue = 1.e+15f ;
+		LWTUP:scale_factor = 1.f ;
+		LWTUP:add_offset = 0.f ;
+	float PARDF(time, lat, lon) ;
+		PARDF:long_name = "Surface downward PAR diffuse flux" ;
+		PARDF:units = "W m-2" ;
+		PARDF:gamap_category = "GMAO-2D" ;
+		PARDF:missing_value = 1.e+15f ;
+		PARDF:_FillValue = 1.e+15f ;
+		PARDF:scale_factor = 1.f ;
+		PARDF:add_offset = 0.f ;
+	float PARDR(time, lat, lon) ;
+		PARDR:long_name = "Surface downward PAR beam flux" ;
+		PARDR:units = "W m-2" ;
+		PARDR:gamap_category = "GMAO-2D" ;
+		PARDR:missing_value = 1.e+15f ;
+		PARDR:_FillValue = 1.e+15f ;
+		PARDR:scale_factor = 1.f ;
+		PARDR:add_offset = 0.f ;
+	float PBLH(time, lat, lon) ;
+		PBLH:long_name = "Planetary boundary layer height above surface" ;
+		PBLH:units = "m" ;
+		PBLH:gamap_category = "GMAO-2D" ;
+		PBLH:missing_value = 1.e+15f ;
+		PBLH:_FillValue = 1.e+15f ;
+		PBLH:scale_factor = 1.f ;
+		PBLH:add_offset = 0.f ;
+	float PRECANV(time, lat, lon) ;
+		PRECANV:long_name = "Surface precipitation flux from anvils" ;
+		PRECANV:units = "kg m-2 s-2" ;
+		PRECANV:gamap_category = "GMAO-2D" ;
+		PRECANV:missing_value = 1.e+15f ;
+		PRECANV:_FillValue = 1.e+15f ;
+		PRECANV:scale_factor = 1.f ;
+		PRECANV:add_offset = 0.f ;
+	float PRECCON(time, lat, lon) ;
+		PRECCON:long_name = "Surface precipitation flux from convection" ;
+		PRECCON:units = "kg m-2 s-2" ;
+		PRECCON:gamap_category = "GMAO-2D" ;
+		PRECCON:missing_value = 1.e+15f ;
+		PRECCON:_FillValue = 1.e+15f ;
+		PRECCON:scale_factor = 1.f ;
+		PRECCON:add_offset = 0.f ;
+	float PRECLSC(time, lat, lon) ;
+		PRECLSC:long_name = "Surface precipitation flux from large-scale" ;
+		PRECLSC:units = "kg m-2 s-2" ;
+		PRECLSC:gamap_category = "GMAO-2D" ;
+		PRECLSC:missing_value = 1.e+15f ;
+		PRECLSC:_FillValue = 1.e+15f ;
+		PRECLSC:scale_factor = 1.f ;
+		PRECLSC:add_offset = 0.f ;
+	float PRECSNO(time, lat, lon) ;
+		PRECSNO:long_name = "Surface precipitation flux from snow" ;
+		PRECSNO:units = "kg m-2 s-2" ;
+		PRECSNO:gamap_category = "GMAO-2D" ;
+		PRECSNO:missing_value = 1.e+15f ;
+		PRECSNO:_FillValue = 1.e+15f ;
+		PRECSNO:scale_factor = 1.f ;
+		PRECSNO:add_offset = 0.f ;
+	float PRECTOT(time, lat, lon) ;
+		PRECTOT:long_name = "Total surface precipitation flux" ;
+		PRECTOT:units = "kg m-2 s-2" ;
+		PRECTOT:gamap_category = "GMAO-2D" ;
+		PRECTOT:missing_value = 1.e+15f ;
+		PRECTOT:_FillValue = 1.e+15f ;
+		PRECTOT:scale_factor = 1.f ;
+		PRECTOT:add_offset = 0.f ;
+	float QV2M(time, lat, lon) ;
+		QV2M:long_name = "Specific humidity at 2m above the displacement height" ;
+		QV2M:units = "kg kg-1" ;
+		QV2M:gamap_category = "GMAO-2D" ;
+		QV2M:missing_value = 1.e+15f ;
+		QV2M:_FillValue = 1.e+15f ;
+		QV2M:scale_factor = 1.f ;
+		QV2M:add_offset = 0.f ;
+	float SEAICE00(time, lat, lon) ;
+		SEAICE00:long_name = "Fraction of grid box that has 0-10% sea ice coverage" ;
+		SEAICE00:units = "1" ;
+		SEAICE00:gamap_category = "GMAO-2D" ;
+		SEAICE00:missing_value = 1.e+15f ;
+		SEAICE00:_FillValue = 1.e+15f ;
+		SEAICE00:scale_factor = 1.f ;
+		SEAICE00:add_offset = 0.f ;
+	float SEAICE10(time, lat, lon) ;
+		SEAICE10:long_name = "Fraction of grid box that has 10-20% sea ice coverage" ;
+		SEAICE10:units = "1" ;
+		SEAICE10:gamap_category = "GMAO-2D" ;
+		SEAICE10:missing_value = 1.e+15f ;
+		SEAICE10:_FillValue = 1.e+15f ;
+		SEAICE10:scale_factor = 1.f ;
+		SEAICE10:add_offset = 0.f ;
+	float SEAICE20(time, lat, lon) ;
+		SEAICE20:long_name = "Fraction of grid box that has 20-30% sea ice coverage" ;
+		SEAICE20:units = "1" ;
+		SEAICE20:gamap_category = "GMAO-2D" ;
+		SEAICE20:missing_value = 1.e+15f ;
+		SEAICE20:_FillValue = 1.e+15f ;
+		SEAICE20:scale_factor = 1.f ;
+		SEAICE20:add_offset = 0.f ;
+	float SEAICE30(time, lat, lon) ;
+		SEAICE30:long_name = "Fraction of grid box that has 30-40% sea ice coverage" ;
+		SEAICE30:units = "1" ;
+		SEAICE30:gamap_category = "GMAO-2D" ;
+		SEAICE30:missing_value = 1.e+15f ;
+		SEAICE30:_FillValue = 1.e+15f ;
+		SEAICE30:scale_factor = 1.f ;
+		SEAICE30:add_offset = 0.f ;
+	float SEAICE40(time, lat, lon) ;
+		SEAICE40:long_name = "Fraction of grid box that has 40-50% sea ice coverage" ;
+		SEAICE40:units = "1" ;
+		SEAICE40:gamap_category = "GMAO-2D" ;
+		SEAICE40:missing_value = 1.e+15f ;
+		SEAICE40:_FillValue = 1.e+15f ;
+		SEAICE40:scale_factor = 1.f ;
+		SEAICE40:add_offset = 0.f ;
+	float SEAICE50(time, lat, lon) ;
+		SEAICE50:long_name = "Fraction of grid box that has 50-60% sea ice coverage" ;
+		SEAICE50:units = "1" ;
+		SEAICE50:gamap_category = "GMAO-2D" ;
+		SEAICE50:missing_value = 1.e+15f ;
+		SEAICE50:_FillValue = 1.e+15f ;
+		SEAICE50:scale_factor = 1.f ;
+		SEAICE50:add_offset = 0.f ;
+	float SEAICE60(time, lat, lon) ;
+		SEAICE60:long_name = "Fraction of grid box that has 60-70% sea ice coverage" ;
+		SEAICE60:units = "1" ;
+		SEAICE60:gamap_category = "GMAO-2D" ;
+		SEAICE60:missing_value = 1.e+15f ;
+		SEAICE60:_FillValue = 1.e+15f ;
+		SEAICE60:scale_factor = 1.f ;
+		SEAICE60:add_offset = 0.f ;
+	float SEAICE70(time, lat, lon) ;
+		SEAICE70:long_name = "Fraction of grid box that has 70-80% sea ice coverage" ;
+		SEAICE70:units = "1" ;
+		SEAICE70:gamap_category = "GMAO-2D" ;
+		SEAICE70:missing_value = 1.e+15f ;
+		SEAICE70:_FillValue = 1.e+15f ;
+		SEAICE70:scale_factor = 1.f ;
+		SEAICE70:add_offset = 0.f ;
+	float SEAICE80(time, lat, lon) ;
+		SEAICE80:long_name = "Fraction of grid box that has 80-90% sea ice coverage" ;
+		SEAICE80:units = "1" ;
+		SEAICE80:gamap_category = "GMAO-2D" ;
+		SEAICE80:missing_value = 1.e+15f ;
+		SEAICE80:_FillValue = 1.e+15f ;
+		SEAICE80:scale_factor = 1.f ;
+		SEAICE80:add_offset = 0.f ;
+	float SEAICE90(time, lat, lon) ;
+		SEAICE90:long_name = "Fraction of grid box that has 90-100% sea ice coverage" ;
+		SEAICE90:units = "1" ;
+		SEAICE90:gamap_category = "GMAO-2D" ;
+		SEAICE90:missing_value = 1.e+15f ;
+		SEAICE90:_FillValue = 1.e+15f ;
+		SEAICE90:scale_factor = 1.f ;
+		SEAICE90:add_offset = 0.f ;
+	float SLP(time, lat, lon) ;
+		SLP:long_name = "Sea level pressure" ;
+		SLP:units = "hPa" ;
+		SLP:gamap_category = "GMAO-2D" ;
+		SLP:missing_value = 1.e+15f ;
+		SLP:_FillValue = 1.e+15f ;
+		SLP:scale_factor = 1.f ;
+		SLP:add_offset = 0.f ;
+	float SNODP(time, lat, lon) ;
+		SNODP:long_name = "Snow depth" ;
+		SNODP:units = "m" ;
+		SNODP:gamap_category = "GMAO-2D" ;
+		SNODP:missing_value = 1.e+15f ;
+		SNODP:_FillValue = 1.e+15f ;
+		SNODP:scale_factor = 1.f ;
+		SNODP:add_offset = 0.f ;
+	float SNOMAS(time, lat, lon) ;
+		SNOMAS:long_name = "Snow mass" ;
+		SNOMAS:units = "kg m-2" ;
+		SNOMAS:gamap_category = "GMAO-2D" ;
+		SNOMAS:missing_value = 1.e+15f ;
+		SNOMAS:_FillValue = 1.e+15f ;
+		SNOMAS:scale_factor = 1.f ;
+		SNOMAS:add_offset = 0.f ;
+	float SWGDN(time, lat, lon) ;
+		SWGDN:long_name = "Surface incident shortwave flux" ;
+		SWGDN:units = "W m-2" ;
+		SWGDN:gamap_category = "GMAO-2D" ;
+		SWGDN:missing_value = 1.e+15f ;
+		SWGDN:_FillValue = 1.e+15f ;
+		SWGDN:scale_factor = 1.f ;
+		SWGDN:add_offset = 0.f ;
+	float TO3(time, lat, lon) ;
+		TO3:long_name = "Total column ozone" ;
+		TO3:units = "Dobsons" ;
+		TO3:gamap_category = "GMAO-2D" ;
+		TO3:missing_value = 1.e+15f ;
+		TO3:_FillValue = 1.e+15f ;
+		TO3:scale_factor = 1.f ;
+		TO3:add_offset = 0.f ;
+	float TROPPT(time, lat, lon) ;
+		TROPPT:long_name = "Temperature-based tropopause pressure" ;
+		TROPPT:units = "hPa" ;
+		TROPPT:gamap_category = "GMAO-2D" ;
+		TROPPT:missing_value = 1.e+15f ;
+		TROPPT:_FillValue = 1.e+15f ;
+		TROPPT:scale_factor = 1.f ;
+		TROPPT:add_offset = 0.f ;
+	float TS(time, lat, lon) ;
+		TS:long_name = "Surface skin temperature" ;
+		TS:units = "K" ;
+		TS:gamap_category = "GMAO-2D" ;
+		TS:missing_value = 1.e+15f ;
+		TS:_FillValue = 1.e+15f ;
+		TS:scale_factor = 1.f ;
+		TS:add_offset = 0.f ;
+	float T2M(time, lat, lon) ;
+		T2M:long_name = "Temperature 2m above displacement height" ;
+		T2M:units = "K" ;
+		T2M:gamap_category = "GMAO-2D" ;
+		T2M:missing_value = 1.e+15f ;
+		T2M:_FillValue = 1.e+15f ;
+		T2M:scale_factor = 1.f ;
+		T2M:add_offset = 0.f ;
+	float U10M(time, lat, lon) ;
+		U10M:long_name = "Eastward wind 10m above displacement height" ;
+		U10M:units = "m s-1" ;
+		U10M:gamap_category = "GMAO-2D" ;
+		U10M:missing_value = 1.e+15f ;
+		U10M:_FillValue = 1.e+15f ;
+		U10M:scale_factor = 1.f ;
+		U10M:add_offset = 0.f ;
+	float USTAR(time, lat, lon) ;
+		USTAR:long_name = "Friction velocity" ;
+		USTAR:units = "m s-1" ;
+		USTAR:gamap_category = "GMAO-2D" ;
+		USTAR:missing_value = 1.e+15f ;
+		USTAR:_FillValue = 1.e+15f ;
+		USTAR:scale_factor = 1.f ;
+		USTAR:add_offset = 0.f ;
+	float V10M(time, lat, lon) ;
+		V10M:long_name = "Northward wind 10m above displacement height" ;
+		V10M:units = "m s-1" ;
+		V10M:gamap_category = "GMAO-2D" ;
+		V10M:missing_value = 1.e+15f ;
+		V10M:_FillValue = 1.e+15f ;
+		V10M:scale_factor = 1.f ;
+		V10M:add_offset = 0.f ;
+	float Z0M(time, lat, lon) ;
+		Z0M:long_name = "Roughness length, momentum" ;
+		Z0M:units = "m" ;
+		Z0M:gamap_category = "GMAO-2D" ;
+		Z0M:missing_value = 1.e+15f ;
+		Z0M:_FillValue = 1.e+15f ;
+		Z0M:scale_factor = 1.f ;
+		Z0M:add_offset = 0.f ;
+	float T10M(time, lat, lon) ;
+		T10M:long_name = "Temperature at 10 m above the displacement height" ;
+		T10M:units = "K" ;
+		T10M:gamap_category = "GMAO-2D" ;
+		T10M:missing_value = 1.e+15f ;
+		T10M:_FillValue = 1.e+15f ;
+		T10M:scale_factor = 1.f ;
+		T10M:add_offset = 0.f ;
+	float Q850(time, lat, lon) ;
+		Q850:long_name = "Specific humidity at 850 hPa" ;
+		Q850:units = "kg kg-1" ;
+		Q850:gamap_category = "GMAO-2D" ;
+		Q850:missing_value = 1.e+15f ;
+		Q850:_FillValue = 1.e+15f ;
+		Q850:scale_factor = 1.f ;
+		Q850:add_offset = 0.f ;
+
+// global attributes:
+		:Title = "GEOS-FP 1-hour time-averaged parameters (A1), processed for GEOS-Chem input" ;
+		:Contact = "GEOS-Chem Support Team (geos-chem-support@as.harvard.edu)" ;
+		:References = "www.geos-chem.org; wiki.geos-chem.org" ;
+		:Filename = "temp" ;
+		:History = "File generated on: 2018/02/01 10:56:21 GMT-0400" ;
+		:ProductionDateTime = "File generated on: 2018/02/01 10:56:21 GMT-0400" ;
+		:ModificationDateTime = "File generated on: 2018/02/01 10:56:21 GMT-0400" ;
+		:Format = "NetCDF-4" ;
+		:SpatialCoverage = "global" ;
+		:Conventions = "COARDS" ;
+		:Version = "GEOS-FP" ;
+		:Model = "GEOS-5" ;
+		:Nlayers = "72" ;
+		:Start_Date = "20180101" ;
+		:Start_Time = "00:00:00.0" ;
+		:End_Date = "20180101" ;
+		:End_Time = "23:59:59.99999" ;
+		:Delta_Time = "010000" ;
+		:Delta_Lon = "0.625" ;
+		:Delta_Lat = "0.5" ;
+data:
+
+ time = 30, 90, 150, 210, 270, 330, 390, 450, 510, 570, 630, 690, 750, 810, 
+    870, 930, 990, 1050, 1110, 1170, 1230, 1290, 1350, 1410 ;
+
+ lat = -89.9375, -89.75, -89.5, -89.25, -89, -88.75, -88.5, -88.25, -88, 
+    -87.75, -87.5, -87.25, -87, -86.75, -86.5, -86.25, -86, -85.75, -85.5, 
+    -85.25, -85, -84.75, -84.5, -84.25, -84, -83.75, -83.5, -83.25, -83, 
+    -82.75, -82.5, -82.25, -82, -81.75, -81.5, -81.25, -81, -80.75, -80.5, 
+    -80.25, -80, -79.75, -79.5, -79.25, -79, -78.75, -78.5, -78.25, -78, 
+    -77.75, -77.5, -77.25, -77, -76.75, -76.5, -76.25, -76, -75.75, -75.5, 
+    -75.25, -75, -74.75, -74.5, -74.25, -74, -73.75, -73.5, -73.25, -73, 
+    -72.75, -72.5, -72.25, -72, -71.75, -71.5, -71.25, -71, -70.75, -70.5, 
+    -70.25, -70, -69.75, -69.5, -69.25, -69, -68.75, -68.5, -68.25, -68, 
+    -67.75, -67.5, -67.25, -67, -66.75, -66.5, -66.25, -66, -65.75, -65.5, 
+    -65.25, -65, -64.75, -64.5, -64.25, -64, -63.75, -63.5, -63.25, -63, 
+    -62.75, -62.5, -62.25, -62, -61.75, -61.5, -61.25, -61, -60.75, -60.5, 
+    -60.25, -60, -59.75, -59.5, -59.25, -59, -58.75, -58.5, -58.25, -58, 
+    -57.75, -57.5, -57.25, -57, -56.75, -56.5, -56.25, -56, -55.75, -55.5, 
+    -55.25, -55, -54.75, -54.5, -54.25, -54, -53.75, -53.5, -53.25, -53, 
+    -52.75, -52.5, -52.25, -52, -51.75, -51.5, -51.25, -51, -50.75, -50.5, 
+    -50.25, -50, -49.75, -49.5, -49.25, -49, -48.75, -48.5, -48.25, -48, 
+    -47.75, -47.5, -47.25, -47, -46.75, -46.5, -46.25, -46, -45.75, -45.5, 
+    -45.25, -45, -44.75, -44.5, -44.25, -44, -43.75, -43.5, -43.25, -43, 
+    -42.75, -42.5, -42.25, -42, -41.75, -41.5, -41.25, -41, -40.75, -40.5, 
+    -40.25, -40, -39.75, -39.5, -39.25, -39, -38.75, -38.5, -38.25, -38, 
+    -37.75, -37.5, -37.25, -37, -36.75, -36.5, -36.25, -36, -35.75, -35.5, 
+    -35.25, -35, -34.75, -34.5, -34.25, -34, -33.75, -33.5, -33.25, -33, 
+    -32.75, -32.5, -32.25, -32, -31.75, -31.5, -31.25, -31, -30.75, -30.5, 
+    -30.25, -30, -29.75, -29.5, -29.25, -29, -28.75, -28.5, -28.25, -28, 
+    -27.75, -27.5, -27.25, -27, -26.75, -26.5, -26.25, -26, -25.75, -25.5, 
+    -25.25, -25, -24.75, -24.5, -24.25, -24, -23.75, -23.5, -23.25, -23, 
+    -22.75, -22.5, -22.25, -22, -21.75, -21.5, -21.25, -21, -20.75, -20.5, 
+    -20.25, -20, -19.75, -19.5, -19.25, -19, -18.75, -18.5, -18.25, -18, 
+    -17.75, -17.5, -17.25, -17, -16.75, -16.5, -16.25, -16, -15.75, -15.5, 
+    -15.25, -15, -14.75, -14.5, -14.25, -14, -13.75, -13.5, -13.25, -13, 
+    -12.75, -12.5, -12.25, -12, -11.75, -11.5, -11.25, -11, -10.75, -10.5, 
+    -10.25, -10, -9.75, -9.5, -9.25, -9, -8.75, -8.5, -8.25, -8, -7.75, -7.5, 
+    -7.25, -7, -6.75, -6.5, -6.25, -6, -5.75, -5.5, -5.25, -5, -4.75, -4.5, 
+    -4.25, -4, -3.75, -3.5, -3.25, -3, -2.75, -2.5, -2.25, -2, -1.75, -1.5, 
+    -1.25, -1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 
+    2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 
+    5.75, 6, 6.25, 6.5, 6.75, 7, 7.25, 7.5, 7.75, 8, 8.25, 8.5, 8.75, 9, 
+    9.25, 9.5, 9.75, 10, 10.25, 10.5, 10.75, 11, 11.25, 11.5, 11.75, 12, 
+    12.25, 12.5, 12.75, 13, 13.25, 13.5, 13.75, 14, 14.25, 14.5, 14.75, 15, 
+    15.25, 15.5, 15.75, 16, 16.25, 16.5, 16.75, 17, 17.25, 17.5, 17.75, 18, 
+    18.25, 18.5, 18.75, 19, 19.25, 19.5, 19.75, 20, 20.25, 20.5, 20.75, 21, 
+    21.25, 21.5, 21.75, 22, 22.25, 22.5, 22.75, 23, 23.25, 23.5, 23.75, 24, 
+    24.25, 24.5, 24.75, 25, 25.25, 25.5, 25.75, 26, 26.25, 26.5, 26.75, 27, 
+    27.25, 27.5, 27.75, 28, 28.25, 28.5, 28.75, 29, 29.25, 29.5, 29.75, 30, 
+    30.25, 30.5, 30.75, 31, 31.25, 31.5, 31.75, 32, 32.25, 32.5, 32.75, 33, 
+    33.25, 33.5, 33.75, 34, 34.25, 34.5, 34.75, 35, 35.25, 35.5, 35.75, 36, 
+    36.25, 36.5, 36.75, 37, 37.25, 37.5, 37.75, 38, 38.25, 38.5, 38.75, 39, 
+    39.25, 39.5, 39.75, 40, 40.25, 40.5, 40.75, 41, 41.25, 41.5, 41.75, 42, 
+    42.25, 42.5, 42.75, 43, 43.25, 43.5, 43.75, 44, 44.25, 44.5, 44.75, 45, 
+    45.25, 45.5, 45.75, 46, 46.25, 46.5, 46.75, 47, 47.25, 47.5, 47.75, 48, 
+    48.25, 48.5, 48.75, 49, 49.25, 49.5, 49.75, 50, 50.25, 50.5, 50.75, 51, 
+    51.25, 51.5, 51.75, 52, 52.25, 52.5, 52.75, 53, 53.25, 53.5, 53.75, 54, 
+    54.25, 54.5, 54.75, 55, 55.25, 55.5, 55.75, 56, 56.25, 56.5, 56.75, 57, 
+    57.25, 57.5, 57.75, 58, 58.25, 58.5, 58.75, 59, 59.25, 59.5, 59.75, 60, 
+    60.25, 60.5, 60.75, 61, 61.25, 61.5, 61.75, 62, 62.25, 62.5, 62.75, 63, 
+    63.25, 63.5, 63.75, 64, 64.25, 64.5, 64.75, 65, 65.25, 65.5, 65.75, 66, 
+    66.25, 66.5, 66.75, 67, 67.25, 67.5, 67.75, 68, 68.25, 68.5, 68.75, 69, 
+    69.25, 69.5, 69.75, 70, 70.25, 70.5, 70.75, 71, 71.25, 71.5, 71.75, 72, 
+    72.25, 72.5, 72.75, 73, 73.25, 73.5, 73.75, 74, 74.25, 74.5, 74.75, 75, 
+    75.25, 75.5, 75.75, 76, 76.25, 76.5, 76.75, 77, 77.25, 77.5, 77.75, 78, 
+    78.25, 78.5, 78.75, 79, 79.25, 79.5, 79.75, 80, 80.25, 80.5, 80.75, 81, 
+    81.25, 81.5, 81.75, 82, 82.25, 82.5, 82.75, 83, 83.25, 83.5, 83.75, 84, 
+    84.25, 84.5, 84.75, 85, 85.25, 85.5, 85.75, 86, 86.25, 86.5, 86.75, 87, 
+    87.25, 87.5, 87.75, 88, 88.25, 88.5, 88.75, 89, 89.25, 89.5, 89.75, 
+    89.9375 ;
+
+ lon = -180, -179.6875, -179.375, -179.0625, -178.75, -178.4375, -178.125, 
+    -177.8125, -177.5, -177.1875, -176.875, -176.5625, -176.25, -175.9375, 
+    -175.625, -175.3125, -175, -174.6875, -174.375, -174.0625, -173.75, 
+    -173.4375, -173.125, -172.8125, -172.5, -172.1875, -171.875, -171.5625, 
+    -171.25, -170.9375, -170.625, -170.3125, -170, -169.6875, -169.375, 
+    -169.0625, -168.75, -168.4375, -168.125, -167.8125, -167.5, -167.1875, 
+    -166.875, -166.5625, -166.25, -165.9375, -165.625, -165.3125, -165, 
+    -164.6875, -164.375, -164.0625, -163.75, -163.4375, -163.125, -162.8125, 
+    -162.5, -162.1875, -161.875, -161.5625, -161.25, -160.9375, -160.625, 
+    -160.3125, -160, -159.6875, -159.375, -159.0625, -158.75, -158.4375, 
+    -158.125, -157.8125, -157.5, -157.1875, -156.875, -156.5625, -156.25, 
+    -155.9375, -155.625, -155.3125, -155, -154.6875, -154.375, -154.0625, 
+    -153.75, -153.4375, -153.125, -152.8125, -152.5, -152.1875, -151.875, 
+    -151.5625, -151.25, -150.9375, -150.625, -150.3125, -150, -149.6875, 
+    -149.375, -149.0625, -148.75, -148.4375, -148.125, -147.8125, -147.5, 
+    -147.1875, -146.875, -146.5625, -146.25, -145.9375, -145.625, -145.3125, 
+    -145, -144.6875, -144.375, -144.0625, -143.75, -143.4375, -143.125, 
+    -142.8125, -142.5, -142.1875, -141.875, -141.5625, -141.25, -140.9375, 
+    -140.625, -140.3125, -140, -139.6875, -139.375, -139.0625, -138.75, 
+    -138.4375, -138.125, -137.8125, -137.5, -137.1875, -136.875, -136.5625, 
+    -136.25, -135.9375, -135.625, -135.3125, -135, -134.6875, -134.375, 
+    -134.0625, -133.75, -133.4375, -133.125, -132.8125, -132.5, -132.1875, 
+    -131.875, -131.5625, -131.25, -130.9375, -130.625, -130.3125, -130, 
+    -129.6875, -129.375, -129.0625, -128.75, -128.4375, -128.125, -127.8125, 
+    -127.5, -127.1875, -126.875, -126.5625, -126.25, -125.9375, -125.625, 
+    -125.3125, -125, -124.6875, -124.375, -124.0625, -123.75, -123.4375, 
+    -123.125, -122.8125, -122.5, -122.1875, -121.875, -121.5625, -121.25, 
+    -120.9375, -120.625, -120.3125, -120, -119.6875, -119.375, -119.0625, 
+    -118.75, -118.4375, -118.125, -117.8125, -117.5, -117.1875, -116.875, 
+    -116.5625, -116.25, -115.9375, -115.625, -115.3125, -115, -114.6875, 
+    -114.375, -114.0625, -113.75, -113.4375, -113.125, -112.8125, -112.5, 
+    -112.1875, -111.875, -111.5625, -111.25, -110.9375, -110.625, -110.3125, 
+    -110, -109.6875, -109.375, -109.0625, -108.75, -108.4375, -108.125, 
+    -107.8125, -107.5, -107.1875, -106.875, -106.5625, -106.25, -105.9375, 
+    -105.625, -105.3125, -105, -104.6875, -104.375, -104.0625, -103.75, 
+    -103.4375, -103.125, -102.8125, -102.5, -102.1875, -101.875, -101.5625, 
+    -101.25, -100.9375, -100.625, -100.3125, -100, -99.6875, -99.375, 
+    -99.0625, -98.75, -98.4375, -98.125, -97.8125, -97.5, -97.1875, -96.875, 
+    -96.5625, -96.25, -95.9375, -95.625, -95.3125, -95, -94.6875, -94.375, 
+    -94.0625, -93.75, -93.4375, -93.125, -92.8125, -92.5, -92.1875, -91.875, 
+    -91.5625, -91.25, -90.9375, -90.625, -90.3125, -90, -89.6875, -89.375, 
+    -89.0625, -88.75, -88.4375, -88.125, -87.8125, -87.5, -87.1875, -86.875, 
+    -86.5625, -86.25, -85.9375, -85.625, -85.3125, -85, -84.6875, -84.375, 
+    -84.0625, -83.75, -83.4375, -83.125, -82.8125, -82.5, -82.1875, -81.875, 
+    -81.5625, -81.25, -80.9375, -80.625, -80.3125, -80, -79.6875, -79.375, 
+    -79.0625, -78.75, -78.4375, -78.125, -77.8125, -77.5, -77.1875, -76.875, 
+    -76.5625, -76.25, -75.9375, -75.625, -75.3125, -75, -74.6875, -74.375, 
+    -74.0625, -73.75, -73.4375, -73.125, -72.8125, -72.5, -72.1875, -71.875, 
+    -71.5625, -71.25, -70.9375, -70.625, -70.3125, -70, -69.6875, -69.375, 
+    -69.0625, -68.75, -68.4375, -68.125, -67.8125, -67.5, -67.1875, -66.875, 
+    -66.5625, -66.25, -65.9375, -65.625, -65.3125, -65, -64.6875, -64.375, 
+    -64.0625, -63.75, -63.4375, -63.125, -62.8125, -62.5, -62.1875, -61.875, 
+    -61.5625, -61.25, -60.9375, -60.625, -60.3125, -60, -59.6875, -59.375, 
+    -59.0625, -58.75, -58.4375, -58.125, -57.8125, -57.5, -57.1875, -56.875, 
+    -56.5625, -56.25, -55.9375, -55.625, -55.3125, -55, -54.6875, -54.375, 
+    -54.0625, -53.75, -53.4375, -53.125, -52.8125, -52.5, -52.1875, -51.875, 
+    -51.5625, -51.25, -50.9375, -50.625, -50.3125, -50, -49.6875, -49.375, 
+    -49.0625, -48.75, -48.4375, -48.125, -47.8125, -47.5, -47.1875, -46.875, 
+    -46.5625, -46.25, -45.9375, -45.625, -45.3125, -45, -44.6875, -44.375, 
+    -44.0625, -43.75, -43.4375, -43.125, -42.8125, -42.5, -42.1875, -41.875, 
+    -41.5625, -41.25, -40.9375, -40.625, -40.3125, -40, -39.6875, -39.375, 
+    -39.0625, -38.75, -38.4375, -38.125, -37.8125, -37.5, -37.1875, -36.875, 
+    -36.5625, -36.25, -35.9375, -35.625, -35.3125, -35, -34.6875, -34.375, 
+    -34.0625, -33.75, -33.4375, -33.125, -32.8125, -32.5, -32.1875, -31.875, 
+    -31.5625, -31.25, -30.9375, -30.625, -30.3125, -30, -29.6875, -29.375, 
+    -29.0625, -28.75, -28.4375, -28.125, -27.8125, -27.5, -27.1875, -26.875, 
+    -26.5625, -26.25, -25.9375, -25.625, -25.3125, -25, -24.6875, -24.375, 
+    -24.0625, -23.75, -23.4375, -23.125, -22.8125, -22.5, -22.1875, -21.875, 
+    -21.5625, -21.25, -20.9375, -20.625, -20.3125, -20, -19.6875, -19.375, 
+    -19.0625, -18.75, -18.4375, -18.125, -17.8125, -17.5, -17.1875, -16.875, 
+    -16.5625, -16.25, -15.9375, -15.625, -15.3125, -15, -14.6875, -14.375, 
+    -14.0625, -13.75, -13.4375, -13.125, -12.8125, -12.5, -12.1875, -11.875, 
+    -11.5625, -11.25, -10.9375, -10.625, -10.3125, -10, -9.6875, -9.375, 
+    -9.0625, -8.75, -8.4375, -8.125, -7.8125, -7.5, -7.1875, -6.875, -6.5625, 
+    -6.25, -5.9375, -5.625, -5.3125, -5, -4.6875, -4.375, -4.0625, -3.75, 
+    -3.4375, -3.125, -2.8125, -2.5, -2.1875, -1.875, -1.5625, -1.25, -0.9375, 
+    -0.625, -0.3125, 0, 0.3125, 0.625, 0.9375, 1.25, 1.5625, 1.875, 2.1875, 
+    2.5, 2.8125, 3.125, 3.4375, 3.75, 4.0625, 4.375, 4.6875, 5, 5.3125, 
+    5.625, 5.9375, 6.25, 6.5625, 6.875, 7.1875, 7.5, 7.8125, 8.125, 8.4375, 
+    8.75, 9.0625, 9.375, 9.6875, 10, 10.3125, 10.625, 10.9375, 11.25, 
+    11.5625, 11.875, 12.1875, 12.5, 12.8125, 13.125, 13.4375, 13.75, 14.0625, 
+    14.375, 14.6875, 15, 15.3125, 15.625, 15.9375, 16.25, 16.5625, 16.875, 
+    17.1875, 17.5, 17.8125, 18.125, 18.4375, 18.75, 19.0625, 19.375, 19.6875, 
+    20, 20.3125, 20.625, 20.9375, 21.25, 21.5625, 21.875, 22.1875, 22.5, 
+    22.8125, 23.125, 23.4375, 23.75, 24.0625, 24.375, 24.6875, 25, 25.3125, 
+    25.625, 25.9375, 26.25, 26.5625, 26.875, 27.1875, 27.5, 27.8125, 28.125, 
+    28.4375, 28.75, 29.0625, 29.375, 29.6875, 30, 30.3125, 30.625, 30.9375, 
+    31.25, 31.5625, 31.875, 32.1875, 32.5, 32.8125, 33.125, 33.4375, 33.75, 
+    34.0625, 34.375, 34.6875, 35, 35.3125, 35.625, 35.9375, 36.25, 36.5625, 
+    36.875, 37.1875, 37.5, 37.8125, 38.125, 38.4375, 38.75, 39.0625, 39.375, 
+    39.6875, 40, 40.3125, 40.625, 40.9375, 41.25, 41.5625, 41.875, 42.1875, 
+    42.5, 42.8125, 43.125, 43.4375, 43.75, 44.0625, 44.375, 44.6875, 45, 
+    45.3125, 45.625, 45.9375, 46.25, 46.5625, 46.875, 47.1875, 47.5, 47.8125, 
+    48.125, 48.4375, 48.75, 49.0625, 49.375, 49.6875, 50, 50.3125, 50.625, 
+    50.9375, 51.25, 51.5625, 51.875, 52.1875, 52.5, 52.8125, 53.125, 53.4375, 
+    53.75, 54.0625, 54.375, 54.6875, 55, 55.3125, 55.625, 55.9375, 56.25, 
+    56.5625, 56.875, 57.1875, 57.5, 57.8125, 58.125, 58.4375, 58.75, 59.0625, 
+    59.375, 59.6875, 60, 60.3125, 60.625, 60.9375, 61.25, 61.5625, 61.875, 
+    62.1875, 62.5, 62.8125, 63.125, 63.4375, 63.75, 64.0625, 64.375, 64.6875, 
+    65, 65.3125, 65.625, 65.9375, 66.25, 66.5625, 66.875, 67.1875, 67.5, 
+    67.8125, 68.125, 68.4375, 68.75, 69.0625, 69.375, 69.6875, 70, 70.3125, 
+    70.625, 70.9375, 71.25, 71.5625, 71.875, 72.1875, 72.5, 72.8125, 73.125, 
+    73.4375, 73.75, 74.0625, 74.375, 74.6875, 75, 75.3125, 75.625, 75.9375, 
+    76.25, 76.5625, 76.875, 77.1875, 77.5, 77.8125, 78.125, 78.4375, 78.75, 
+    79.0625, 79.375, 79.6875, 80, 80.3125, 80.625, 80.9375, 81.25, 81.5625, 
+    81.875, 82.1875, 82.5, 82.8125, 83.125, 83.4375, 83.75, 84.0625, 84.375, 
+    84.6875, 85, 85.3125, 85.625, 85.9375, 86.25, 86.5625, 86.875, 87.1875, 
+    87.5, 87.8125, 88.125, 88.4375, 88.75, 89.0625, 89.375, 89.6875, 90, 
+    90.3125, 90.625, 90.9375, 91.25, 91.5625, 91.875, 92.1875, 92.5, 92.8125, 
+    93.125, 93.4375, 93.75, 94.0625, 94.375, 94.6875, 95, 95.3125, 95.625, 
+    95.9375, 96.25, 96.5625, 96.875, 97.1875, 97.5, 97.8125, 98.125, 98.4375, 
+    98.75, 99.0625, 99.375, 99.6875, 100, 100.3125, 100.625, 100.9375, 
+    101.25, 101.5625, 101.875, 102.1875, 102.5, 102.8125, 103.125, 103.4375, 
+    103.75, 104.0625, 104.375, 104.6875, 105, 105.3125, 105.625, 105.9375, 
+    106.25, 106.5625, 106.875, 107.1875, 107.5, 107.8125, 108.125, 108.4375, 
+    108.75, 109.0625, 109.375, 109.6875, 110, 110.3125, 110.625, 110.9375, 
+    111.25, 111.5625, 111.875, 112.1875, 112.5, 112.8125, 113.125, 113.4375, 
+    113.75, 114.0625, 114.375, 114.6875, 115, 115.3125, 115.625, 115.9375, 
+    116.25, 116.5625, 116.875, 117.1875, 117.5, 117.8125, 118.125, 118.4375, 
+    118.75, 119.0625, 119.375, 119.6875, 120, 120.3125, 120.625, 120.9375, 
+    121.25, 121.5625, 121.875, 122.1875, 122.5, 122.8125, 123.125, 123.4375, 
+    123.75, 124.0625, 124.375, 124.6875, 125, 125.3125, 125.625, 125.9375, 
+    126.25, 126.5625, 126.875, 127.1875, 127.5, 127.8125, 128.125, 128.4375, 
+    128.75, 129.0625, 129.375, 129.6875, 130, 130.3125, 130.625, 130.9375, 
+    131.25, 131.5625, 131.875, 132.1875, 132.5, 132.8125, 133.125, 133.4375, 
+    133.75, 134.0625, 134.375, 134.6875, 135, 135.3125, 135.625, 135.9375, 
+    136.25, 136.5625, 136.875, 137.1875, 137.5, 137.8125, 138.125, 138.4375, 
+    138.75, 139.0625, 139.375, 139.6875, 140, 140.3125, 140.625, 140.9375, 
+    141.25, 141.5625, 141.875, 142.1875, 142.5, 142.8125, 143.125, 143.4375, 
+    143.75, 144.0625, 144.375, 144.6875, 145, 145.3125, 145.625, 145.9375, 
+    146.25, 146.5625, 146.875, 147.1875, 147.5, 147.8125, 148.125, 148.4375, 
+    148.75, 149.0625, 149.375, 149.6875, 150, 150.3125, 150.625, 150.9375, 
+    151.25, 151.5625, 151.875, 152.1875, 152.5, 152.8125, 153.125, 153.4375, 
+    153.75, 154.0625, 154.375, 154.6875, 155, 155.3125, 155.625, 155.9375, 
+    156.25, 156.5625, 156.875, 157.1875, 157.5, 157.8125, 158.125, 158.4375, 
+    158.75, 159.0625, 159.375, 159.6875, 160, 160.3125, 160.625, 160.9375, 
+    161.25, 161.5625, 161.875, 162.1875, 162.5, 162.8125, 163.125, 163.4375, 
+    163.75, 164.0625, 164.375, 164.6875, 165, 165.3125, 165.625, 165.9375, 
+    166.25, 166.5625, 166.875, 167.1875, 167.5, 167.8125, 168.125, 168.4375, 
+    168.75, 169.0625, 169.375, 169.6875, 170, 170.3125, 170.625, 170.9375, 
+    171.25, 171.5625, 171.875, 172.1875, 172.5, 172.8125, 173.125, 173.4375, 
+    173.75, 174.0625, 174.375, 174.6875, 175, 175.3125, 175.625, 175.9375, 
+    176.25, 176.5625, 176.875, 177.1875, 177.5, 177.8125, 178.125, 178.4375, 
+    178.75, 179.0625, 179.375, 179.6875 ;
+}

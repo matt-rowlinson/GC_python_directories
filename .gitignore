@@ -1,0 +1,10 @@
+*png
+*nc
+*nc4
+plots/*
+output/*
+LOGS/
+Logs/
+logs/
+*.log
+slurm*

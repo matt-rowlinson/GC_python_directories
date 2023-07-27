@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#SBATCH --job-name=flasks_noaa
+#SBATCH --ntasks=1
+#SBATCH --mem=4Gb
+#SBATCH --partition=interactive
+#SBATCH --time=00:03:00
+#SBATCH --output=Logs/flasks_noaa_%A.log
+#SBATCH --open-mode=appendltruncate
+import pandas as pd
+import numpy as np
+import sys
+import matplotlib.lines as mlines
+import matplotlib.pyplot as plt
+plt.style.use('seaborn-darkgrid')
+from scipy import odr as odr
+
+def func(p, x):
+
+    a, b, = p
+    return a * x + b
+
+def calc_stats(obs, model):
+    absError= model - obs
+    SE = np.square(absError)
+    MSE= np.mean(SE)
+    RMSE=np.round( np.sqrt(MSE), 3)
+    R2 = np.round( 1. - (np.var(absError) / np.var(obs)), 3)
+
+    return RMSE, R2
+
+
+def main():
+    from scipy import odr
+    quad_model = odr.Model(func)
+
+    ethane_obs    = pd.read_csv('csvs/noaa_ethane_observations_2016.csv')
+    propane_obs   = pd.read_csv('csvs/noaa_propane_observations_2016.csv')
+
+    ethane_ceds   = pd.read_csv('csvs/ethane_ceds_only_13.1.2_2016.csv')
+    propane_ceds  = pd.read_csv('csvs/propane_ceds_only_13.1.2_2016.csv')
+
+    ethane_scale  = pd.read_csv('csvs/ethane_asia-meic_scale_13.1.2_2016.csv')
+    propane_scale = pd.read_csv('csvs/propane_asia-meic_scale_13.1.2_2016.csv')
+    
+    alk4_obs = pd.read_csv('csvs/ALK4_obs.csv', delimiter=',') 
+    alk4_model2 = pd.read_csv('csvs/ALK4_model2.csv', delimiter=',') *1e12
+    alk4_model3= pd.read_csv('csvs/ALK4_MEIC.csv', delimiter=',') *1e12
+    
+    #fltr=np.where( x > 0. )
+    x = ethane_obs
+    y = ethane_ceds
+    x0=ethane_obs
+    y0=ethane_ceds
+
+    # Create a RealData object
+    data = odr.RealData(np.log10(x), np.log10(y))
+
+    # Set up ODR with the model and data.
+    odr = odr.ODR(data, quad_model, beta0=[0., 1.])
+
+    # Run the regression.
+    out = odr.run()
+
+    #print fit parameters and 1-sigma estimates
+    popt = out.beta
+    perr = out.sd_beta
+    print('fit parameter 1-sigma error')
+    #print('———————————–')
+    print( len(popt) )
+    sys.exit()
+    for i in range(len(popt)):
+        print(str(popt[i])+' +- '+str(perr[i]))
+
+        # prepare confidence level curves
+        nstd = 10. # to draw 5-sigma intervals
+        popt_up = popt + nstd * perr
+        popt_dw = popt - nstd * perr
+
+        x_fit = np.linspace(min(np.log10(x)), max(np.log10(x)), len(x))
+        fit = func(popt, x_fit)
+        fit_up = func(popt_up, x_fit)
+        fit_dw= func(popt_dw, x_fit)
+    
+
+
+
+    print( alk4_obs.shape, ethane_obs.shape, propane_obs.shape)
+    fig, ((ax1,ax2,ax3)) = plt.subplots(1,3,figsize=(15,5))  
+
+    Pdev = ax1.scatter( ethane_obs, ethane_ceds, c='b', alpha=.2, zorder=1)
+    Pdev2 = ax1.scatter( ethane_obs, ethane_scale, c='r', alpha=.5, zorder=2 )
+
+    Pdev  = ax2.scatter( propane_obs, propane_ceds , c='b', alpha=.2, zorder=1)
+    Pdev2 = ax2.scatter( propane_obs, propane_scale, c='r', alpha=.5, zorder=2 )
+
+    Pdev  = ax3.scatter( alk4_obs, alk4_model2 , c='b', alpha=.05, zorder=1)
+    Pdev2 = ax3.scatter( alk4_obs, alk4_model3 , c='r', alpha=.15, zorder=2 )
+
+    ax1.set_yscale('log')
+    ax1.set_xscale('log')
+    ax2.set_yscale('log')
+    ax2.set_xscale('log')
+    ax3.set_yscale('log')
+    ax3.set_xscale('log')
+
+    ax1.set_ylabel(f'Model ethane (ppt)')
+    ax1.set_xlabel(f'Observed ethane (ppt)')
+    ax2.set_ylabel(f'Model propane (ppt)')
+    ax2.set_xlabel(f'Observed propane (ppt)')
+    ax3.set_ylabel(f'Model ALK4 (ppt)')
+    ax3.set_xlabel(f'Observed ALK4 (ppt)')
+
+
+
+    plt.tight_layout()
+    plt.savefig('plots/TEST.log.png')
+    plt.close()
+
+    return
+
+if __name__=="__main__":
+    main()

@@ -1,0 +1,234 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#SBATCH --job-name=VOC_fig3
+#SBATCH --ntasks=1
+#SBATCH --mem=2Gb
+#SBATCH --partition=test
+#SBATCH --time=00:05:00
+#SBATCH --output=Logs/Fig.3_%A.log
+
+import xarray as xr
+import os
+import glob
+import re
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
+plt.style.use('seaborn-darkgrid')
+
+### Temporary imports
+#import warnings
+#warnings.simplefilter(action='ignore', category=pd.errors.PerformanceWarning)
+#warnings.simplefilter(action='ignore', category=FutureWarning)
+#import datetime
+#import sys
+
+def find_file_list(path, substrs):
+    file_list =[]
+    for root, directory, files in os.walk(path):
+        for f in files:
+            for s in substrs:
+                if s in f:
+                    file_list.append(os.path.join(root, f))
+    file_list.sort()
+    return file_list
+
+def get_data_as_xr(rundir, year='', lev=0, version='14.0.1', variable=False):
+    path=f'/mnt/lustre/users/mjr583/GC/{version}/rundirs/{rundir}'
+    ds = xr.open_mfdataset( find_file_list(path, [f'SpeciesConc.{year}']), combine='by_coords' )
+    if variable:
+        ds = ds[f'SpeciesConc_{d[variable]["GC_name"]}'].isel(lev=lev) * float(d[variable]['scale'])
+    return ds
+
+def open_site_dataset(infile):
+    with open(infile) as thefile:
+        txt = thefile.readline()
+        n = [int(s) for s in txt.split() if s.isdigit()][0]
+        txt=thefile.readlines()
+        cols=txt[n-2].split()[2:]
+        cols = [c.replace("sample_", "") for c in cols]
+        grab_site = [s for s in txt[:n] if "site-code" in s][0]
+        site = grab_site.split("code:",1)[1].replace(" ","")[:3]
+        data=txt[n:]
+        data = [w.replace(" ", ";") for w in data]
+        data = [re.sub("\;+", ";", w) for w in data]
+    data = [n.split(';') for n in data]
+    df = pd.DataFrame(data)
+    df.columns = cols
+    df.index = pd.to_datetime(df[['year', 'month', 'day', 'hour', 'minute']])
+    return df 
+
+def open_site_dataset_ALK4(infile):
+    ALK4_df=pd.DataFrame()
+    site = infile.split('_')[4]
+    alk4_species = ['ic4h10','nc4h10','ic5h12','nc5h12']
+    for s in alk4_species:
+        f = f'/users/mjr583/noaa_flask_data/ALK4_datasets/{s}_{site}_surface-flask_1_arl_event.txt'
+        with open( f ) as thefile:
+            txt = thefile.readline()
+            n = [int(s) for s in txt.split() if s.isdigit()][0]
+            txt=thefile.readlines()
+            cols=txt[n-2].split()[2:]
+            cols = [c.replace("sample_", "") for c in cols]
+            grab_site = [s for s in txt[:n] if "site-code" in s][0]
+            site = grab_site.split("code:",1)[1].replace(" ","")[:3]
+            data=txt[n:]
+            data = [w.replace(" ", ";") for w in data]
+            data = [re.sub("\;+", ";", w) for w in data]
+            data = [n.split(';') for n in data]
+        if ALK4_df.empty:
+            ALK4_df = pd.DataFrame(data)
+            ALK4_df.columns = cols
+            ALK4_df['analysis_value'] = pd.to_numeric(ALK4_df['analysis_value'])
+            ALK4_df.index = pd.to_datetime(ALK4_df[['year', 'month', 'day', 'hour', 'minute']])
+        else:
+            df = pd.DataFrame(data)
+            df.columns = cols
+            df.index = pd.to_datetime(df[['year', 'month', 'day', 'hour', 'minute']])
+            try:
+                ALK4_df['analysis_value'] = ALK4_df['analysis_value'].values + pd.to_numeric(df['analysis_value'].values)
+            except:
+                pass
+    return ALK4_df 
+
+def find_nearest_3d(ds,lon_value, lat_value, alt_value):
+    gc_alts = pd.read_csv( '/users/mjr583/GC/info_files/GC_72_vertical_levels.csv')['Altitude (km)'] * 1e3
+    x_idx=(np.abs( ds.lon - float(lon_value) )).argmin()
+    y_idx=(np.abs( ds.lat - float(lat_value) )).argmin()
+    z_idx=(np.abs( gc_alts.values - float(alt_value) )).argmin()
+    return x_idx, y_idx, z_idx
+
+def process_obs_and_model_data( rundirs, ds_, var ):
+    first=True
+    for infile in sorted( glob.glob( f'/users/mjr583/noaa_flask_data/{var}_datasets/*txt')):
+        ## only process observations if data for 2016 exists
+        try:
+            if var=='ALK4':
+                df = open_site_dataset_ALK4( infile ).loc['2016']                
+            else:
+                df = open_site_dataset( infile ).loc['2016']
+        except:
+            continue
+
+        ## process obs
+        obs = df[df.analysis_flag == '...']
+        obs = pd.DataFrame( pd.to_numeric(obs.analysis_value) )
+        obs = obs['analysis_value'].resample('D').mean().dropna().to_frame()
+        
+        ## process model data
+        for ds, rundir in zip(ds_, rundirs):
+            d = ds[f'SpeciesConc_{var}']
+            x_idx, y_idx, z_idx = find_nearest_3d( d, df.longitude[0], df.latitude[0], df.altitude[0] )
+            d = d.isel( lon=x_idx, lat=y_idx, lev=z_idx )
+            d = pd.DataFrame( {f'{rundir}': d.values * 1e12}, index=d.time ).resample('D').mean()
+
+            ## temporarily overwrite 2017 data as 2016 (including changing leap day to 28/02)
+            #¢d.index = d.index + pd.DateOffset(year=2016)
+            #if datetime.datetime( 2016, 2, 29) in obs.index:
+            #    obs.index = obs.index.to_series().replace({pd.Timestamp('2016-02-29'): pd.Timestamp('2016-02-28')})
+            ## 
+
+            d = d.reindex( obs.index ).dropna()
+            obs = pd.concat( [obs, d], axis=1 )
+        
+        if first:
+            out=obs
+            first=False
+        else: 
+            out = pd.concat( [out, obs ], axis=0 )
+    return out 
+
+def calc_stats(obs, model):
+    absError= model - obs
+    SE = np.square(absError)
+    MSE= np.mean(SE)
+    RMSE=np.round( np.sqrt(MSE), 3)
+    R2 = np.round( 1. - (np.var(absError) / np.var(obs)), 3)
+    return RMSE, R2
+
+def func(p, x):
+    a, b = p
+    return a * x + b
+
+def get_odr(x,y):
+    from scipy import odr
+    quad_model = odr.Model(func) 
+
+    data = odr.RealData( x,y )
+    odr  = odr.ODR( data, quad_model, beta0=[0., 1.,] ) 
+    out  = odr.run()
+    popt = out.beta
+    perr = out.sd_beta
+
+    for  i in range(len(popt)):
+        nstd=10
+        popt_up = popt + nstd * perr
+        popt_dw = popt - nstd * perr
+        x_fit = np.linspace( min(x), max(x), len(x) )
+        fit = func( popt, x_fit )
+        return x_fit, fit, popt[0] 
+
+######---------------------------MAIN-SCRIPT------------------------------------------------######
+def main():
+    ## Set plot input criteria
+    rundirs = ['geo_2x25']#,'all_2x25']#, 'scale_all']
+    year    = '2016'
+    
+    ## Read model output as xarray datasets
+    ds_=[]
+    for r in rundirs:
+        ds = get_data_as_xr(r, year)
+        ds_.append( ds )
+
+    ## Read observations, and process model output to match
+    ethane  = process_obs_and_model_data(rundirs, ds_, 'C2H6')
+    propane = process_obs_and_model_data(rundirs, ds_, 'C3H8')
+    alk4    = process_obs_and_model_data(rundirs, ds_, 'ALK4')
+
+    ## Filter 99th percentile of data
+    ethane  = ethane[  ethane.analysis_value  <= np.percentile( ethane.analysis_value,  99 )]
+    propane = propane[ propane.analysis_value <= np.percentile( propane.analysis_value, 99 )]
+    alk4    = alk4[    alk4.analysis_value    <= np.percentile( alk4.analysis_value,    99 )]
+
+    ethane  = ethane[  ethane[rundirs[0]]  <= np.percentile( ethane[rundirs[0]],  99 )]
+    propane = propane[ propane[rundirs[0]] <= np.percentile( propane[rundirs[0]], 99 )]
+    alk4    = alk4[    alk4[rundirs[0]]    <= np.percentile( alk4[rundirs[0]],    99 )]
+
+    ## Plot on 3-panel scatter plot
+    scat_colours = ['forestgreen','orange']
+    line_colours = ['darkgreen'  ,'darkorange']
+
+    labels=['Base','Scaled CEDS Emissions']
+    alphas=[.3,.3,.05]
+
+    f, (ax1,ax2,ax3) = plt.subplots( 1,3, figsize=(15,5) )
+    axes=[ax1,ax2,ax3]
+    for ax, var,alpha in zip(axes, [ethane,propane,alk4],alphas):
+        for n, rundir in enumerate(rundirs):
+            rmse, r2 = calc_stats(var.analysis_value, var[rundir] )
+            x_fit, fit, a2 = get_odr( var.analysis_value, var[rundir] )
+            ax.scatter( var.analysis_value, var[rundir], c=scat_colours[n], alpha=alpha, zorder=1)
+            ax.plot( x_fit, fit, c=line_colours[n], lw=2, label=labels[n]+" (z=%.2f)" %a2 ) 
+            
+        line  = mlines.Line2D([0,1],[0,1], color='darkgrey', zorder=0)
+        line.set_transform(ax.transAxes)
+        ax.add_line(line)
+        ax.set_xlim( 0., np.max([ var.analysis_value]))
+        ax.set_ylim( 0., np.max([ var.analysis_value]))
+        ax.legend()
+
+    ax1.set_ylabel(f'Model $C_2H_6$ (ppt)')
+    ax1.set_xlabel(f'Observed $C_2H_6$ (ppt)')
+    ax2.set_ylabel(f'Model $C_3H_8$ (ppt)')
+    ax2.set_xlabel(f'Observed $C_3H_8$ (ppt)')
+    ax3.set_ylabel(f'Model ALK4 (ppt)')
+    ax3.set_xlabel(f'Observed ALK4 (ppt)')
+
+    plt.tight_layout()
+    plt.savefig('plots/figure_1.png')
+    plt.close()
+
+
+if __name__=="__main__":
+    main()

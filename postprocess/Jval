@@ -1,0 +1,935 @@
+netcdf GEOSChem.JValues.20180101_0000z {
+dimensions:
+	time = UNLIMITED ; // (744 currently)
+	lev = 47 ;
+	ilev = 48 ;
+	lat = 46 ;
+	lon = 72 ;
+variables:
+	double time(time) ;
+		time:long_name = "Time" ;
+		time:units = "minutes since 2018-01-01 00:00:00" ;
+		time:calendar = "gregorian" ;
+		time:axis = "T" ;
+	double lev(lev) ;
+		lev:long_name = "hybrid level at midpoints ((A/P0)+B)" ;
+		lev:units = "level" ;
+		lev:axis = "Z" ;
+		lev:positive = "up" ;
+		lev:standard_name = "atmosphere_hybrid_sigma_pressure_coordinate" ;
+		lev:formula_terms = "a: hyam b: hybm p0: P0 ps: PS" ;
+	double ilev(ilev) ;
+		ilev:long_name = "hybrid level at interfaces ((A/P0)+B)" ;
+		ilev:units = "level" ;
+		ilev:positive = "up" ;
+		ilev:standard_name = "atmosphere_hybrid_sigma_pressure_coordinate" ;
+		ilev:formula_terms = "a: hyai b: hybi p0: P0 ps: PS" ;
+	double lat(lat) ;
+		lat:long_name = "Latitude" ;
+		lat:units = "degrees_north" ;
+		lat:axis = "Y" ;
+	double lon(lon) ;
+		lon:long_name = "Longitude" ;
+		lon:units = "degrees_east" ;
+		lon:axis = "X" ;
+	double hyam(lev) ;
+		hyam:long_name = "hybrid A coefficient at layer midpoints" ;
+		hyam:units = "hPa" ;
+	double hybm(lev) ;
+		hybm:long_name = "hybrid B coefficient at layer midpoints" ;
+		hybm:units = "1" ;
+	double hyai(ilev) ;
+		hyai:long_name = "hybrid A coefficient at layer interfaces" ;
+		hyai:units = "hPa" ;
+	double hybi(ilev) ;
+		hybi:long_name = "hybrid B coefficient at layer interfaces" ;
+		hybi:units = "1" ;
+	double P0 ;
+		P0:long_name = "reference pressure" ;
+		P0:units = "hPa" ;
+	float AREA(lat, lon) ;
+		AREA:long_name = "Surface area" ;
+		AREA:units = "m2" ;
+	float UVFluxNet_574nm(time, lev, lat, lon) ;
+		UVFluxNet_574nm:long_name = "Net UV flux in bin 574nm" ;
+		UVFluxNet_574nm:units = "W m-2" ;
+		UVFluxNet_574nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_380nm(time, lev, lat, lon) ;
+		UVFluxNet_380nm:long_name = "Net UV flux in bin 380nm" ;
+		UVFluxNet_380nm:units = "W m-2" ;
+		UVFluxNet_380nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_333nm(time, lev, lat, lon) ;
+		UVFluxNet_333nm:long_name = "Net UV flux in bin 333nm" ;
+		UVFluxNet_333nm:units = "W m-2" ;
+		UVFluxNet_333nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_316nm(time, lev, lat, lon) ;
+		UVFluxNet_316nm:long_name = "Net UV flux in bin 316nm" ;
+		UVFluxNet_316nm:units = "W m-2" ;
+		UVFluxNet_316nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_310nm(time, lev, lat, lon) ;
+		UVFluxNet_310nm:long_name = "Net UV flux in bin 310nm" ;
+		UVFluxNet_310nm:units = "W m-2" ;
+		UVFluxNet_310nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_303nm(time, lev, lat, lon) ;
+		UVFluxNet_303nm:long_name = "Net UV flux in bin 303nm" ;
+		UVFluxNet_303nm:units = "W m-2" ;
+		UVFluxNet_303nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_295nm(time, lev, lat, lon) ;
+		UVFluxNet_295nm:long_name = "Net UV flux in bin 295nm" ;
+		UVFluxNet_295nm:units = "W m-2" ;
+		UVFluxNet_295nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_277nm(time, lev, lat, lon) ;
+		UVFluxNet_277nm:long_name = "Net UV flux in bin 277nm" ;
+		UVFluxNet_277nm:units = "W m-2" ;
+		UVFluxNet_277nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_267nm(time, lev, lat, lon) ;
+		UVFluxNet_267nm:long_name = "Net UV flux in bin 267nm" ;
+		UVFluxNet_267nm:units = "W m-2" ;
+		UVFluxNet_267nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_261nm(time, lev, lat, lon) ;
+		UVFluxNet_261nm:long_name = "Net UV flux in bin 261nm" ;
+		UVFluxNet_261nm:units = "W m-2" ;
+		UVFluxNet_261nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_214nm(time, lev, lat, lon) ;
+		UVFluxNet_214nm:long_name = "Net UV flux in bin 214nm" ;
+		UVFluxNet_214nm:units = "W m-2" ;
+		UVFluxNet_214nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_211nm(time, lev, lat, lon) ;
+		UVFluxNet_211nm:long_name = "Net UV flux in bin 211nm" ;
+		UVFluxNet_211nm:units = "W m-2" ;
+		UVFluxNet_211nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_208nm(time, lev, lat, lon) ;
+		UVFluxNet_208nm:long_name = "Net UV flux in bin 208nm" ;
+		UVFluxNet_208nm:units = "W m-2" ;
+		UVFluxNet_208nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_202nm(time, lev, lat, lon) ;
+		UVFluxNet_202nm:long_name = "Net UV flux in bin 202nm" ;
+		UVFluxNet_202nm:units = "W m-2" ;
+		UVFluxNet_202nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_196nm(time, lev, lat, lon) ;
+		UVFluxNet_196nm:long_name = "Net UV flux in bin 196nm" ;
+		UVFluxNet_196nm:units = "W m-2" ;
+		UVFluxNet_196nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_193nm(time, lev, lat, lon) ;
+		UVFluxNet_193nm:long_name = "Net UV flux in bin 193nm" ;
+		UVFluxNet_193nm:units = "W m-2" ;
+		UVFluxNet_193nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_191nm(time, lev, lat, lon) ;
+		UVFluxNet_191nm:long_name = "Net UV flux in bin 191nm" ;
+		UVFluxNet_191nm:units = "W m-2" ;
+		UVFluxNet_191nm:averaging_method = "time-averaged" ;
+	float UVFluxNet_187nm(time, lev, lat, lon) ;
+		UVFluxNet_187nm:long_name = "Net UV flux in bin 187nm" ;
+		UVFluxNet_187nm:units = "W m-2" ;
+		UVFluxNet_187nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_574nm(time, lev, lat, lon) ;
+		UVFluxDirect_574nm:long_name = "Direct UV flux in bin 574nm" ;
+		UVFluxDirect_574nm:units = "W m-2" ;
+		UVFluxDirect_574nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_380nm(time, lev, lat, lon) ;
+		UVFluxDirect_380nm:long_name = "Direct UV flux in bin 380nm" ;
+		UVFluxDirect_380nm:units = "W m-2" ;
+		UVFluxDirect_380nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_333nm(time, lev, lat, lon) ;
+		UVFluxDirect_333nm:long_name = "Direct UV flux in bin 333nm" ;
+		UVFluxDirect_333nm:units = "W m-2" ;
+		UVFluxDirect_333nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_316nm(time, lev, lat, lon) ;
+		UVFluxDirect_316nm:long_name = "Direct UV flux in bin 316nm" ;
+		UVFluxDirect_316nm:units = "W m-2" ;
+		UVFluxDirect_316nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_310nm(time, lev, lat, lon) ;
+		UVFluxDirect_310nm:long_name = "Direct UV flux in bin 310nm" ;
+		UVFluxDirect_310nm:units = "W m-2" ;
+		UVFluxDirect_310nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_303nm(time, lev, lat, lon) ;
+		UVFluxDirect_303nm:long_name = "Direct UV flux in bin 303nm" ;
+		UVFluxDirect_303nm:units = "W m-2" ;
+		UVFluxDirect_303nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_295nm(time, lev, lat, lon) ;
+		UVFluxDirect_295nm:long_name = "Direct UV flux in bin 295nm" ;
+		UVFluxDirect_295nm:units = "W m-2" ;
+		UVFluxDirect_295nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_277nm(time, lev, lat, lon) ;
+		UVFluxDirect_277nm:long_name = "Direct UV flux in bin 277nm" ;
+		UVFluxDirect_277nm:units = "W m-2" ;
+		UVFluxDirect_277nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_267nm(time, lev, lat, lon) ;
+		UVFluxDirect_267nm:long_name = "Direct UV flux in bin 267nm" ;
+		UVFluxDirect_267nm:units = "W m-2" ;
+		UVFluxDirect_267nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_261nm(time, lev, lat, lon) ;
+		UVFluxDirect_261nm:long_name = "Direct UV flux in bin 261nm" ;
+		UVFluxDirect_261nm:units = "W m-2" ;
+		UVFluxDirect_261nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_214nm(time, lev, lat, lon) ;
+		UVFluxDirect_214nm:long_name = "Direct UV flux in bin 214nm" ;
+		UVFluxDirect_214nm:units = "W m-2" ;
+		UVFluxDirect_214nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_211nm(time, lev, lat, lon) ;
+		UVFluxDirect_211nm:long_name = "Direct UV flux in bin 211nm" ;
+		UVFluxDirect_211nm:units = "W m-2" ;
+		UVFluxDirect_211nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_208nm(time, lev, lat, lon) ;
+		UVFluxDirect_208nm:long_name = "Direct UV flux in bin 208nm" ;
+		UVFluxDirect_208nm:units = "W m-2" ;
+		UVFluxDirect_208nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_202nm(time, lev, lat, lon) ;
+		UVFluxDirect_202nm:long_name = "Direct UV flux in bin 202nm" ;
+		UVFluxDirect_202nm:units = "W m-2" ;
+		UVFluxDirect_202nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_196nm(time, lev, lat, lon) ;
+		UVFluxDirect_196nm:long_name = "Direct UV flux in bin 196nm" ;
+		UVFluxDirect_196nm:units = "W m-2" ;
+		UVFluxDirect_196nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_193nm(time, lev, lat, lon) ;
+		UVFluxDirect_193nm:long_name = "Direct UV flux in bin 193nm" ;
+		UVFluxDirect_193nm:units = "W m-2" ;
+		UVFluxDirect_193nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_191nm(time, lev, lat, lon) ;
+		UVFluxDirect_191nm:long_name = "Direct UV flux in bin 191nm" ;
+		UVFluxDirect_191nm:units = "W m-2" ;
+		UVFluxDirect_191nm:averaging_method = "time-averaged" ;
+	float UVFluxDirect_187nm(time, lev, lat, lon) ;
+		UVFluxDirect_187nm:long_name = "Direct UV flux in bin 187nm" ;
+		UVFluxDirect_187nm:units = "W m-2" ;
+		UVFluxDirect_187nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_574nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_574nm:long_name = "Diffuse UV flux in bin 574nm" ;
+		UVFluxDiffuse_574nm:units = "W m-2" ;
+		UVFluxDiffuse_574nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_380nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_380nm:long_name = "Diffuse UV flux in bin 380nm" ;
+		UVFluxDiffuse_380nm:units = "W m-2" ;
+		UVFluxDiffuse_380nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_333nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_333nm:long_name = "Diffuse UV flux in bin 333nm" ;
+		UVFluxDiffuse_333nm:units = "W m-2" ;
+		UVFluxDiffuse_333nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_316nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_316nm:long_name = "Diffuse UV flux in bin 316nm" ;
+		UVFluxDiffuse_316nm:units = "W m-2" ;
+		UVFluxDiffuse_316nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_310nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_310nm:long_name = "Diffuse UV flux in bin 310nm" ;
+		UVFluxDiffuse_310nm:units = "W m-2" ;
+		UVFluxDiffuse_310nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_303nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_303nm:long_name = "Diffuse UV flux in bin 303nm" ;
+		UVFluxDiffuse_303nm:units = "W m-2" ;
+		UVFluxDiffuse_303nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_295nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_295nm:long_name = "Diffuse UV flux in bin 295nm" ;
+		UVFluxDiffuse_295nm:units = "W m-2" ;
+		UVFluxDiffuse_295nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_277nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_277nm:long_name = "Diffuse UV flux in bin 277nm" ;
+		UVFluxDiffuse_277nm:units = "W m-2" ;
+		UVFluxDiffuse_277nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_267nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_267nm:long_name = "Diffuse UV flux in bin 267nm" ;
+		UVFluxDiffuse_267nm:units = "W m-2" ;
+		UVFluxDiffuse_267nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_261nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_261nm:long_name = "Diffuse UV flux in bin 261nm" ;
+		UVFluxDiffuse_261nm:units = "W m-2" ;
+		UVFluxDiffuse_261nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_214nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_214nm:long_name = "Diffuse UV flux in bin 214nm" ;
+		UVFluxDiffuse_214nm:units = "W m-2" ;
+		UVFluxDiffuse_214nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_211nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_211nm:long_name = "Diffuse UV flux in bin 211nm" ;
+		UVFluxDiffuse_211nm:units = "W m-2" ;
+		UVFluxDiffuse_211nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_208nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_208nm:long_name = "Diffuse UV flux in bin 208nm" ;
+		UVFluxDiffuse_208nm:units = "W m-2" ;
+		UVFluxDiffuse_208nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_202nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_202nm:long_name = "Diffuse UV flux in bin 202nm" ;
+		UVFluxDiffuse_202nm:units = "W m-2" ;
+		UVFluxDiffuse_202nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_196nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_196nm:long_name = "Diffuse UV flux in bin 196nm" ;
+		UVFluxDiffuse_196nm:units = "W m-2" ;
+		UVFluxDiffuse_196nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_193nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_193nm:long_name = "Diffuse UV flux in bin 193nm" ;
+		UVFluxDiffuse_193nm:units = "W m-2" ;
+		UVFluxDiffuse_193nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_191nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_191nm:long_name = "Diffuse UV flux in bin 191nm" ;
+		UVFluxDiffuse_191nm:units = "W m-2" ;
+		UVFluxDiffuse_191nm:averaging_method = "time-averaged" ;
+	float UVFluxDiffuse_187nm(time, lev, lat, lon) ;
+		UVFluxDiffuse_187nm:long_name = "Diffuse UV flux in bin 187nm" ;
+		UVFluxDiffuse_187nm:units = "W m-2" ;
+		UVFluxDiffuse_187nm:averaging_method = "time-averaged" ;
+	float JvalO3O3P(time, lev, lat, lon) ;
+		JvalO3O3P:long_name = "Photolysis rate for O3 -> O3P" ;
+		JvalO3O3P:units = "s-1" ;
+		JvalO3O3P:averaging_method = "time-averaged" ;
+	float JvalO3O1D(time, lev, lat, lon) ;
+		JvalO3O1D:long_name = "Photolysis rate for O3 -> O1D" ;
+		JvalO3O1D:units = "s-1" ;
+		JvalO3O1D:averaging_method = "time-averaged" ;
+	float Jval_O2(time, lev, lat, lon) ;
+		Jval_O2:long_name = "Photolysis rate for species O2" ;
+		Jval_O2:units = "s-1" ;
+		Jval_O2:averaging_method = "time-averaged" ;
+	float Jval_SO4(time, lev, lat, lon) ;
+		Jval_SO4:long_name = "Photolysis rate for species SO4" ;
+		Jval_SO4:units = "s-1" ;
+		Jval_SO4:averaging_method = "time-averaged" ;
+	float Jval_RP(time, lev, lat, lon) ;
+		Jval_RP:long_name = "Photolysis rate for species RP" ;
+		Jval_RP:units = "s-1" ;
+		Jval_RP:averaging_method = "time-averaged" ;
+	float Jval_RIPD(time, lev, lat, lon) ;
+		Jval_RIPD:long_name = "Photolysis rate for species RIPD" ;
+		Jval_RIPD:units = "s-1" ;
+		Jval_RIPD:averaging_method = "time-averaged" ;
+	float Jval_RIPC(time, lev, lat, lon) ;
+		Jval_RIPC:long_name = "Photolysis rate for species RIPC" ;
+		Jval_RIPC:units = "s-1" ;
+		Jval_RIPC:averaging_method = "time-averaged" ;
+	float Jval_RIPB(time, lev, lat, lon) ;
+		Jval_RIPB:long_name = "Photolysis rate for species RIPB" ;
+		Jval_RIPB:units = "s-1" ;
+		Jval_RIPB:averaging_method = "time-averaged" ;
+	float Jval_RIPA(time, lev, lat, lon) ;
+		Jval_RIPA:long_name = "Photolysis rate for species RIPA" ;
+		Jval_RIPA:units = "s-1" ;
+		Jval_RIPA:averaging_method = "time-averaged" ;
+	float Jval_RCHO(time, lev, lat, lon) ;
+		Jval_RCHO:long_name = "Photolysis rate for species RCHO" ;
+		Jval_RCHO:units = "s-1" ;
+		Jval_RCHO:averaging_method = "time-averaged" ;
+	float Jval_RB3P(time, lev, lat, lon) ;
+		Jval_RB3P:long_name = "Photolysis rate for species RB3P" ;
+		Jval_RB3P:units = "s-1" ;
+		Jval_RB3P:averaging_method = "time-averaged" ;
+	float Jval_RA3P(time, lev, lat, lon) ;
+		Jval_RA3P:long_name = "Photolysis rate for species RA3P" ;
+		Jval_RA3P:units = "s-1" ;
+		Jval_RA3P:averaging_method = "time-averaged" ;
+	float Jval_R4P(time, lev, lat, lon) ;
+		Jval_R4P:long_name = "Photolysis rate for species R4P" ;
+		Jval_R4P:units = "s-1" ;
+		Jval_R4P:averaging_method = "time-averaged" ;
+	float Jval_R4N2(time, lev, lat, lon) ;
+		Jval_R4N2:long_name = "Photolysis rate for species R4N2" ;
+		Jval_R4N2:units = "s-1" ;
+		Jval_R4N2:averaging_method = "time-averaged" ;
+	float Jval_PYAC(time, lev, lat, lon) ;
+		Jval_PYAC:long_name = "Photolysis rate for species PYAC" ;
+		Jval_PYAC:units = "s-1" ;
+		Jval_PYAC:averaging_method = "time-averaged" ;
+	float Jval_PRPN(time, lev, lat, lon) ;
+		Jval_PRPN:long_name = "Photolysis rate for species PRPN" ;
+		Jval_PRPN:units = "s-1" ;
+		Jval_PRPN:averaging_method = "time-averaged" ;
+	float Jval_PROPNN(time, lev, lat, lon) ;
+		Jval_PROPNN:long_name = "Photolysis rate for species PROPNN" ;
+		Jval_PROPNN:units = "s-1" ;
+		Jval_PROPNN:averaging_method = "time-averaged" ;
+	float Jval_PP(time, lev, lat, lon) ;
+		Jval_PP:long_name = "Photolysis rate for species PP" ;
+		Jval_PP:units = "s-1" ;
+		Jval_PP:averaging_method = "time-averaged" ;
+	float Jval_PIP(time, lev, lat, lon) ;
+		Jval_PIP:long_name = "Photolysis rate for species PIP" ;
+		Jval_PIP:units = "s-1" ;
+		Jval_PIP:averaging_method = "time-averaged" ;
+	float Jval_PAN(time, lev, lat, lon) ;
+		Jval_PAN:long_name = "Photolysis rate for species PAN" ;
+		Jval_PAN:units = "s-1" ;
+		Jval_PAN:averaging_method = "time-averaged" ;
+	float Jval_OIO(time, lev, lat, lon) ;
+		Jval_OIO:long_name = "Photolysis rate for species OIO" ;
+		Jval_OIO:units = "s-1" ;
+		Jval_OIO:averaging_method = "time-averaged" ;
+	float Jval_OCS(time, lev, lat, lon) ;
+		Jval_OCS:long_name = "Photolysis rate for species OCS" ;
+		Jval_OCS:units = "s-1" ;
+		Jval_OCS:averaging_method = "time-averaged" ;
+	float Jval_OClO(time, lev, lat, lon) ;
+		Jval_OClO:long_name = "Photolysis rate for species OClO" ;
+		Jval_OClO:units = "s-1" ;
+		Jval_OClO:averaging_method = "time-averaged" ;
+	float Jval_O3(time, lev, lat, lon) ;
+		Jval_O3:long_name = "Photolysis rate for species O3" ;
+		Jval_O3:units = "s-1" ;
+		Jval_O3:averaging_method = "time-averaged" ;
+	float Jval_NPRNO3(time, lev, lat, lon) ;
+		Jval_NPRNO3:long_name = "Photolysis rate for species NPRNO3" ;
+		Jval_NPRNO3:units = "s-1" ;
+		Jval_NPRNO3:averaging_method = "time-averaged" ;
+	float Jval_NO3(time, lev, lat, lon) ;
+		Jval_NO3:long_name = "Photolysis rate for species NO3" ;
+		Jval_NO3:units = "s-1" ;
+		Jval_NO3:averaging_method = "time-averaged" ;
+	float Jval_NO2(time, lev, lat, lon) ;
+		Jval_NO2:long_name = "Photolysis rate for species NO2" ;
+		Jval_NO2:units = "s-1" ;
+		Jval_NO2:averaging_method = "time-averaged" ;
+	float Jval_NO(time, lev, lat, lon) ;
+		Jval_NO:long_name = "Photolysis rate for species NO" ;
+		Jval_NO:units = "s-1" ;
+		Jval_NO:averaging_method = "time-averaged" ;
+	float Jval_NITs(time, lev, lat, lon) ;
+		Jval_NITs:long_name = "Photolysis rate for species NITs" ;
+		Jval_NITs:units = "s-1" ;
+		Jval_NITs:averaging_method = "time-averaged" ;
+	float Jval_NIT(time, lev, lat, lon) ;
+		Jval_NIT:long_name = "Photolysis rate for species NIT" ;
+		Jval_NIT:units = "s-1" ;
+		Jval_NIT:averaging_method = "time-averaged" ;
+	float Jval_N2O5(time, lev, lat, lon) ;
+		Jval_N2O5:long_name = "Photolysis rate for species N2O5" ;
+		Jval_N2O5:units = "s-1" ;
+		Jval_N2O5:averaging_method = "time-averaged" ;
+	float Jval_N2O(time, lev, lat, lon) ;
+		Jval_N2O:long_name = "Photolysis rate for species N2O" ;
+		Jval_N2O:units = "s-1" ;
+		Jval_N2O:averaging_method = "time-averaged" ;
+	float Jval_MVKPC(time, lev, lat, lon) ;
+		Jval_MVKPC:long_name = "Photolysis rate for species MVKPC" ;
+		Jval_MVKPC:units = "s-1" ;
+		Jval_MVKPC:averaging_method = "time-averaged" ;
+	float Jval_MVKN(time, lev, lat, lon) ;
+		Jval_MVKN:long_name = "Photolysis rate for species MVKN" ;
+		Jval_MVKN:units = "s-1" ;
+		Jval_MVKN:averaging_method = "time-averaged" ;
+	float Jval_MVKHP(time, lev, lat, lon) ;
+		Jval_MVKHP:long_name = "Photolysis rate for species MVKHP" ;
+		Jval_MVKHP:units = "s-1" ;
+		Jval_MVKHP:averaging_method = "time-averaged" ;
+	float Jval_MVKHCB(time, lev, lat, lon) ;
+		Jval_MVKHCB:long_name = "Photolysis rate for species MVKHCB" ;
+		Jval_MVKHCB:units = "s-1" ;
+		Jval_MVKHCB:averaging_method = "time-averaged" ;
+	float Jval_MVKHC(time, lev, lat, lon) ;
+		Jval_MVKHC:long_name = "Photolysis rate for species MVKHC" ;
+		Jval_MVKHC:units = "s-1" ;
+		Jval_MVKHC:averaging_method = "time-averaged" ;
+	float Jval_MVK(time, lev, lat, lon) ;
+		Jval_MVK:long_name = "Photolysis rate for species MVK" ;
+		Jval_MVK:units = "s-1" ;
+		Jval_MVK:averaging_method = "time-averaged" ;
+	float Jval_MPN(time, lev, lat, lon) ;
+		Jval_MPN:long_name = "Photolysis rate for species MPN" ;
+		Jval_MPN:units = "s-1" ;
+		Jval_MPN:averaging_method = "time-averaged" ;
+	float Jval_MPAN(time, lev, lat, lon) ;
+		Jval_MPAN:long_name = "Photolysis rate for species MPAN" ;
+		Jval_MPAN:units = "s-1" ;
+		Jval_MPAN:averaging_method = "time-averaged" ;
+	float Jval_MP(time, lev, lat, lon) ;
+		Jval_MP:long_name = "Photolysis rate for species MP" ;
+		Jval_MP:units = "s-1" ;
+		Jval_MP:averaging_method = "time-averaged" ;
+	float Jval_MONITU(time, lev, lat, lon) ;
+		Jval_MONITU:long_name = "Photolysis rate for species MONITU" ;
+		Jval_MONITU:units = "s-1" ;
+		Jval_MONITU:averaging_method = "time-averaged" ;
+	float Jval_MONITS(time, lev, lat, lon) ;
+		Jval_MONITS:long_name = "Photolysis rate for species MONITS" ;
+		Jval_MONITS:units = "s-1" ;
+		Jval_MONITS:averaging_method = "time-averaged" ;
+	float Jval_MGLY(time, lev, lat, lon) ;
+		Jval_MGLY:long_name = "Photolysis rate for species MGLY" ;
+		Jval_MGLY:units = "s-1" ;
+		Jval_MGLY:averaging_method = "time-averaged" ;
+	float Jval_MENO3(time, lev, lat, lon) ;
+		Jval_MENO3:long_name = "Photolysis rate for species MENO3" ;
+		Jval_MENO3:units = "s-1" ;
+		Jval_MENO3:averaging_method = "time-averaged" ;
+	float Jval_MEK(time, lev, lat, lon) ;
+		Jval_MEK:long_name = "Photolysis rate for species MEK" ;
+		Jval_MEK:units = "s-1" ;
+		Jval_MEK:averaging_method = "time-averaged" ;
+	float Jval_MCRHP(time, lev, lat, lon) ;
+		Jval_MCRHP:long_name = "Photolysis rate for species MCRHP" ;
+		Jval_MCRHP:units = "s-1" ;
+		Jval_MCRHP:averaging_method = "time-averaged" ;
+	float Jval_MCRHNB(time, lev, lat, lon) ;
+		Jval_MCRHNB:long_name = "Photolysis rate for species MCRHNB" ;
+		Jval_MCRHNB:units = "s-1" ;
+		Jval_MCRHNB:averaging_method = "time-averaged" ;
+	float Jval_MCRHN(time, lev, lat, lon) ;
+		Jval_MCRHN:long_name = "Photolysis rate for species MCRHN" ;
+		Jval_MCRHN:units = "s-1" ;
+		Jval_MCRHN:averaging_method = "time-averaged" ;
+	float Jval_MCRENOL(time, lev, lat, lon) ;
+		Jval_MCRENOL:long_name = "Photolysis rate for species MCRENOL" ;
+		Jval_MCRENOL:units = "s-1" ;
+		Jval_MCRENOL:averaging_method = "time-averaged" ;
+	float Jval_MAP(time, lev, lat, lon) ;
+		Jval_MAP:long_name = "Photolysis rate for species MAP" ;
+		Jval_MAP:units = "s-1" ;
+		Jval_MAP:averaging_method = "time-averaged" ;
+	float Jval_MACR1OOH(time, lev, lat, lon) ;
+		Jval_MACR1OOH:long_name = "Photolysis rate for species MACR1OOH" ;
+		Jval_MACR1OOH:units = "s-1" ;
+		Jval_MACR1OOH:averaging_method = "time-averaged" ;
+	float Jval_MACR(time, lev, lat, lon) ;
+		Jval_MACR:long_name = "Photolysis rate for species MACR" ;
+		Jval_MACR:units = "s-1" ;
+		Jval_MACR:averaging_method = "time-averaged" ;
+	float Jval_ITHN(time, lev, lat, lon) ;
+		Jval_ITHN:long_name = "Photolysis rate for species ITHN" ;
+		Jval_ITHN:units = "s-1" ;
+		Jval_ITHN:averaging_method = "time-averaged" ;
+	float Jval_ITCN(time, lev, lat, lon) ;
+		Jval_ITCN:long_name = "Photolysis rate for species ITCN" ;
+		Jval_ITCN:units = "s-1" ;
+		Jval_ITCN:averaging_method = "time-averaged" ;
+	float Jval_IPRNO3(time, lev, lat, lon) ;
+		Jval_IPRNO3:long_name = "Photolysis rate for species IPRNO3" ;
+		Jval_IPRNO3:units = "s-1" ;
+		Jval_IPRNO3:averaging_method = "time-averaged" ;
+	float Jval_IONO2(time, lev, lat, lon) ;
+		Jval_IONO2:long_name = "Photolysis rate for species IONO2" ;
+		Jval_IONO2:units = "s-1" ;
+		Jval_IONO2:averaging_method = "time-averaged" ;
+	float Jval_IONO(time, lev, lat, lon) ;
+		Jval_IONO:long_name = "Photolysis rate for species IONO" ;
+		Jval_IONO:units = "s-1" ;
+		Jval_IONO:averaging_method = "time-averaged" ;
+	float Jval_IO(time, lev, lat, lon) ;
+		Jval_IO:long_name = "Photolysis rate for species IO" ;
+		Jval_IO:units = "s-1" ;
+		Jval_IO:averaging_method = "time-averaged" ;
+	float Jval_INPD(time, lev, lat, lon) ;
+		Jval_INPD:long_name = "Photolysis rate for species INPD" ;
+		Jval_INPD:units = "s-1" ;
+		Jval_INPD:averaging_method = "time-averaged" ;
+	float Jval_INPB(time, lev, lat, lon) ;
+		Jval_INPB:long_name = "Photolysis rate for species INPB" ;
+		Jval_INPB:units = "s-1" ;
+		Jval_INPB:averaging_method = "time-averaged" ;
+	float Jval_INO(time, lev, lat, lon) ;
+		Jval_INO:long_name = "Photolysis rate for species INO" ;
+		Jval_INO:units = "s-1" ;
+		Jval_INO:averaging_method = "time-averaged" ;
+	float Jval_IHN4(time, lev, lat, lon) ;
+		Jval_IHN4:long_name = "Photolysis rate for species IHN4" ;
+		Jval_IHN4:units = "s-1" ;
+		Jval_IHN4:averaging_method = "time-averaged" ;
+	float Jval_IHN3(time, lev, lat, lon) ;
+		Jval_IHN3:long_name = "Photolysis rate for species IHN3" ;
+		Jval_IHN3:units = "s-1" ;
+		Jval_IHN3:averaging_method = "time-averaged" ;
+	float Jval_IHN2(time, lev, lat, lon) ;
+		Jval_IHN2:long_name = "Photolysis rate for species IHN2" ;
+		Jval_IHN2:units = "s-1" ;
+		Jval_IHN2:averaging_method = "time-averaged" ;
+	float Jval_IHN1(time, lev, lat, lon) ;
+		Jval_IHN1:long_name = "Photolysis rate for species IHN1" ;
+		Jval_IHN1:units = "s-1" ;
+		Jval_IHN1:averaging_method = "time-averaged" ;
+	float Jval_IDN(time, lev, lat, lon) ;
+		Jval_IDN:long_name = "Photolysis rate for species IDN" ;
+		Jval_IDN:units = "s-1" ;
+		Jval_IDN:averaging_method = "time-averaged" ;
+	float Jval_IDHPE(time, lev, lat, lon) ;
+		Jval_IDHPE:long_name = "Photolysis rate for species IDHPE" ;
+		Jval_IDHPE:units = "s-1" ;
+		Jval_IDHPE:averaging_method = "time-averaged" ;
+	float Jval_IDHDP(time, lev, lat, lon) ;
+		Jval_IDHDP:long_name = "Photolysis rate for species IDHDP" ;
+		Jval_IDHDP:units = "s-1" ;
+		Jval_IDHDP:averaging_method = "time-averaged" ;
+	float Jval_IDCHP(time, lev, lat, lon) ;
+		Jval_IDCHP:long_name = "Photolysis rate for species IDCHP" ;
+		Jval_IDCHP:units = "s-1" ;
+		Jval_IDCHP:averaging_method = "time-averaged" ;
+	float Jval_ICPDH(time, lev, lat, lon) ;
+		Jval_ICPDH:long_name = "Photolysis rate for species ICPDH" ;
+		Jval_ICPDH:units = "s-1" ;
+		Jval_ICPDH:averaging_method = "time-averaged" ;
+	float Jval_ICN(time, lev, lat, lon) ;
+		Jval_ICN:long_name = "Photolysis rate for species ICN" ;
+		Jval_ICN:units = "s-1" ;
+		Jval_ICN:averaging_method = "time-averaged" ;
+	float Jval_ICl(time, lev, lat, lon) ;
+		Jval_ICl:long_name = "Photolysis rate for species ICl" ;
+		Jval_ICl:units = "s-1" ;
+		Jval_ICl:averaging_method = "time-averaged" ;
+	float Jval_IBr(time, lev, lat, lon) ;
+		Jval_IBr:long_name = "Photolysis rate for species IBr" ;
+		Jval_IBr:units = "s-1" ;
+		Jval_IBr:averaging_method = "time-averaged" ;
+	float Jval_I2O4(time, lev, lat, lon) ;
+		Jval_I2O4:long_name = "Photolysis rate for species I2O4" ;
+		Jval_I2O4:units = "s-1" ;
+		Jval_I2O4:averaging_method = "time-averaged" ;
+	float Jval_I2O3(time, lev, lat, lon) ;
+		Jval_I2O3:long_name = "Photolysis rate for species I2O3" ;
+		Jval_I2O3:units = "s-1" ;
+		Jval_I2O3:averaging_method = "time-averaged" ;
+	float Jval_I2O2(time, lev, lat, lon) ;
+		Jval_I2O2:long_name = "Photolysis rate for species I2O2" ;
+		Jval_I2O2:units = "s-1" ;
+		Jval_I2O2:averaging_method = "time-averaged" ;
+	float Jval_I2(time, lev, lat, lon) ;
+		Jval_I2:long_name = "Photolysis rate for species I2" ;
+		Jval_I2:units = "s-1" ;
+		Jval_I2:averaging_method = "time-averaged" ;
+	float Jval_HPETHNL(time, lev, lat, lon) ;
+		Jval_HPETHNL:long_name = "Photolysis rate for species HPETHNL" ;
+		Jval_HPETHNL:units = "s-1" ;
+		Jval_HPETHNL:averaging_method = "time-averaged" ;
+	float Jval_HPALD4(time, lev, lat, lon) ;
+		Jval_HPALD4:long_name = "Photolysis rate for species HPALD4" ;
+		Jval_HPALD4:units = "s-1" ;
+		Jval_HPALD4:averaging_method = "time-averaged" ;
+	float Jval_HPALD3(time, lev, lat, lon) ;
+		Jval_HPALD3:long_name = "Photolysis rate for species HPALD3" ;
+		Jval_HPALD3:units = "s-1" ;
+		Jval_HPALD3:averaging_method = "time-averaged" ;
+	float Jval_HPALD2(time, lev, lat, lon) ;
+		Jval_HPALD2:long_name = "Photolysis rate for species HPALD2" ;
+		Jval_HPALD2:units = "s-1" ;
+		Jval_HPALD2:averaging_method = "time-averaged" ;
+	float Jval_HPALD1(time, lev, lat, lon) ;
+		Jval_HPALD1:long_name = "Photolysis rate for species HPALD1" ;
+		Jval_HPALD1:units = "s-1" ;
+		Jval_HPALD1:averaging_method = "time-averaged" ;
+	float Jval_HONIT(time, lev, lat, lon) ;
+		Jval_HONIT:long_name = "Photolysis rate for species HONIT" ;
+		Jval_HONIT:units = "s-1" ;
+		Jval_HONIT:averaging_method = "time-averaged" ;
+	float Jval_HOI(time, lev, lat, lon) ;
+		Jval_HOI:long_name = "Photolysis rate for species HOI" ;
+		Jval_HOI:units = "s-1" ;
+		Jval_HOI:averaging_method = "time-averaged" ;
+	float Jval_HOCl(time, lev, lat, lon) ;
+		Jval_HOCl:long_name = "Photolysis rate for species HOCl" ;
+		Jval_HOCl:units = "s-1" ;
+		Jval_HOCl:averaging_method = "time-averaged" ;
+	float Jval_HOBr(time, lev, lat, lon) ;
+		Jval_HOBr:long_name = "Photolysis rate for species HOBr" ;
+		Jval_HOBr:units = "s-1" ;
+		Jval_HOBr:averaging_method = "time-averaged" ;
+	float Jval_HNO4(time, lev, lat, lon) ;
+		Jval_HNO4:long_name = "Photolysis rate for species HNO4" ;
+		Jval_HNO4:units = "s-1" ;
+		Jval_HNO4:averaging_method = "time-averaged" ;
+	float Jval_HNO3(time, lev, lat, lon) ;
+		Jval_HNO3:long_name = "Photolysis rate for species HNO3" ;
+		Jval_HNO3:units = "s-1" ;
+		Jval_HNO3:averaging_method = "time-averaged" ;
+	float Jval_HNO2(time, lev, lat, lon) ;
+		Jval_HNO2:long_name = "Photolysis rate for species HNO2" ;
+		Jval_HNO2:units = "s-1" ;
+		Jval_HNO2:averaging_method = "time-averaged" ;
+	float Jval_HMHP(time, lev, lat, lon) ;
+		Jval_HMHP:long_name = "Photolysis rate for species HMHP" ;
+		Jval_HMHP:units = "s-1" ;
+		Jval_HMHP:averaging_method = "time-averaged" ;
+	float Jval_HCFC22(time, lev, lat, lon) ;
+		Jval_HCFC22:long_name = "Photolysis rate for species HCFC22" ;
+		Jval_HCFC22:units = "s-1" ;
+		Jval_HCFC22:averaging_method = "time-averaged" ;
+	float Jval_HCFC142b(time, lev, lat, lon) ;
+		Jval_HCFC142b:long_name = "Photolysis rate for species HCFC142b" ;
+		Jval_HCFC142b:units = "s-1" ;
+		Jval_HCFC142b:averaging_method = "time-averaged" ;
+	float Jval_HCFC141b(time, lev, lat, lon) ;
+		Jval_HCFC141b:long_name = "Photolysis rate for species HCFC141b" ;
+		Jval_HCFC141b:units = "s-1" ;
+		Jval_HCFC141b:averaging_method = "time-averaged" ;
+	float Jval_HCFC123(time, lev, lat, lon) ;
+		Jval_HCFC123:long_name = "Photolysis rate for species HCFC123" ;
+		Jval_HCFC123:units = "s-1" ;
+		Jval_HCFC123:averaging_method = "time-averaged" ;
+	float Jval_HC5A(time, lev, lat, lon) ;
+		Jval_HC5A:long_name = "Photolysis rate for species HC5A" ;
+		Jval_HC5A:units = "s-1" ;
+		Jval_HC5A:averaging_method = "time-averaged" ;
+	float Jval_HAC(time, lev, lat, lon) ;
+		Jval_HAC:long_name = "Photolysis rate for species HAC" ;
+		Jval_HAC:units = "s-1" ;
+		Jval_HAC:averaging_method = "time-averaged" ;
+	float Jval_H2O2(time, lev, lat, lon) ;
+		Jval_H2O2:long_name = "Photolysis rate for species H2O2" ;
+		Jval_H2O2:units = "s-1" ;
+		Jval_H2O2:averaging_method = "time-averaged" ;
+	float Jval_H2402(time, lev, lat, lon) ;
+		Jval_H2402:long_name = "Photolysis rate for species H2402" ;
+		Jval_H2402:units = "s-1" ;
+		Jval_H2402:averaging_method = "time-averaged" ;
+	float Jval_H1301(time, lev, lat, lon) ;
+		Jval_H1301:long_name = "Photolysis rate for species H1301" ;
+		Jval_H1301:units = "s-1" ;
+		Jval_H1301:averaging_method = "time-averaged" ;
+	float Jval_H1211(time, lev, lat, lon) ;
+		Jval_H1211:long_name = "Photolysis rate for species H1211" ;
+		Jval_H1211:units = "s-1" ;
+		Jval_H1211:averaging_method = "time-averaged" ;
+	float Jval_GLYX(time, lev, lat, lon) ;
+		Jval_GLYX:long_name = "Photolysis rate for species GLYX" ;
+		Jval_GLYX:units = "s-1" ;
+		Jval_GLYX:averaging_method = "time-averaged" ;
+	float Jval_GLYC(time, lev, lat, lon) ;
+		Jval_GLYC:long_name = "Photolysis rate for species GLYC" ;
+		Jval_GLYC:units = "s-1" ;
+		Jval_GLYC:averaging_method = "time-averaged" ;
+	float Jval_ETP(time, lev, lat, lon) ;
+		Jval_ETP:long_name = "Photolysis rate for species ETP" ;
+		Jval_ETP:units = "s-1" ;
+		Jval_ETP:averaging_method = "time-averaged" ;
+	float Jval_ETNO3(time, lev, lat, lon) ;
+		Jval_ETNO3:long_name = "Photolysis rate for species ETNO3" ;
+		Jval_ETNO3:units = "s-1" ;
+		Jval_ETNO3:averaging_method = "time-averaged" ;
+	float Jval_ETHLN(time, lev, lat, lon) ;
+		Jval_ETHLN:long_name = "Photolysis rate for species ETHLN" ;
+		Jval_ETHLN:units = "s-1" ;
+		Jval_ETHLN:averaging_method = "time-averaged" ;
+	float Jval_ClOO(time, lev, lat, lon) ;
+		Jval_ClOO:long_name = "Photolysis rate for species ClOO" ;
+		Jval_ClOO:units = "s-1" ;
+		Jval_ClOO:averaging_method = "time-averaged" ;
+	float Jval_ClO(time, lev, lat, lon) ;
+		Jval_ClO:long_name = "Photolysis rate for species ClO" ;
+		Jval_ClO:units = "s-1" ;
+		Jval_ClO:averaging_method = "time-averaged" ;
+	float Jval_ClNO3(time, lev, lat, lon) ;
+		Jval_ClNO3:long_name = "Photolysis rate for species ClNO3" ;
+		Jval_ClNO3:units = "s-1" ;
+		Jval_ClNO3:averaging_method = "time-averaged" ;
+	float Jval_ClNO2(time, lev, lat, lon) ;
+		Jval_ClNO2:long_name = "Photolysis rate for species ClNO2" ;
+		Jval_ClNO2:units = "s-1" ;
+		Jval_ClNO2:averaging_method = "time-averaged" ;
+	float Jval_Cl2O2(time, lev, lat, lon) ;
+		Jval_Cl2O2:long_name = "Photolysis rate for species Cl2O2" ;
+		Jval_Cl2O2:units = "s-1" ;
+		Jval_Cl2O2:averaging_method = "time-averaged" ;
+	float Jval_Cl2(time, lev, lat, lon) ;
+		Jval_Cl2:long_name = "Photolysis rate for species Cl2" ;
+		Jval_Cl2:units = "s-1" ;
+		Jval_Cl2:averaging_method = "time-averaged" ;
+	float Jval_CHCl3(time, lev, lat, lon) ;
+		Jval_CHCl3:long_name = "Photolysis rate for species CHCl3" ;
+		Jval_CHCl3:units = "s-1" ;
+		Jval_CHCl3:averaging_method = "time-averaged" ;
+	float Jval_CHBr3(time, lev, lat, lon) ;
+		Jval_CHBr3:long_name = "Photolysis rate for species CHBr3" ;
+		Jval_CHBr3:units = "s-1" ;
+		Jval_CHBr3:averaging_method = "time-averaged" ;
+	float Jval_CH3I(time, lev, lat, lon) ;
+		Jval_CH3I:long_name = "Photolysis rate for species CH3I" ;
+		Jval_CH3I:units = "s-1" ;
+		Jval_CH3I:averaging_method = "time-averaged" ;
+	float Jval_CH3Cl(time, lev, lat, lon) ;
+		Jval_CH3Cl:long_name = "Photolysis rate for species CH3Cl" ;
+		Jval_CH3Cl:units = "s-1" ;
+		Jval_CH3Cl:averaging_method = "time-averaged" ;
+	float Jval_CH3CCl3(time, lev, lat, lon) ;
+		Jval_CH3CCl3:long_name = "Photolysis rate for species CH3CCl3" ;
+		Jval_CH3CCl3:units = "s-1" ;
+		Jval_CH3CCl3:averaging_method = "time-averaged" ;
+	float Jval_CH3Br(time, lev, lat, lon) ;
+		Jval_CH3Br:long_name = "Photolysis rate for species CH3Br" ;
+		Jval_CH3Br:units = "s-1" ;
+		Jval_CH3Br:averaging_method = "time-averaged" ;
+	float Jval_CH2O(time, lev, lat, lon) ;
+		Jval_CH2O:long_name = "Photolysis rate for species CH2O" ;
+		Jval_CH2O:units = "s-1" ;
+		Jval_CH2O:averaging_method = "time-averaged" ;
+	float Jval_CH2ICl(time, lev, lat, lon) ;
+		Jval_CH2ICl:long_name = "Photolysis rate for species CH2ICl" ;
+		Jval_CH2ICl:units = "s-1" ;
+		Jval_CH2ICl:averaging_method = "time-averaged" ;
+	float Jval_CH2IBr(time, lev, lat, lon) ;
+		Jval_CH2IBr:long_name = "Photolysis rate for species CH2IBr" ;
+		Jval_CH2IBr:units = "s-1" ;
+		Jval_CH2IBr:averaging_method = "time-averaged" ;
+	float Jval_CH2I2(time, lev, lat, lon) ;
+		Jval_CH2I2:long_name = "Photolysis rate for species CH2I2" ;
+		Jval_CH2I2:units = "s-1" ;
+		Jval_CH2I2:averaging_method = "time-averaged" ;
+	float Jval_CH2Cl2(time, lev, lat, lon) ;
+		Jval_CH2Cl2:long_name = "Photolysis rate for species CH2Cl2" ;
+		Jval_CH2Cl2:units = "s-1" ;
+		Jval_CH2Cl2:averaging_method = "time-averaged" ;
+	float Jval_CH2Br2(time, lev, lat, lon) ;
+		Jval_CH2Br2:long_name = "Photolysis rate for species CH2Br2" ;
+		Jval_CH2Br2:units = "s-1" ;
+		Jval_CH2Br2:averaging_method = "time-averaged" ;
+	float Jval_CFC12(time, lev, lat, lon) ;
+		Jval_CFC12:long_name = "Photolysis rate for species CFC12" ;
+		Jval_CFC12:units = "s-1" ;
+		Jval_CFC12:averaging_method = "time-averaged" ;
+	float Jval_CFC115(time, lev, lat, lon) ;
+		Jval_CFC115:long_name = "Photolysis rate for species CFC115" ;
+		Jval_CFC115:units = "s-1" ;
+		Jval_CFC115:averaging_method = "time-averaged" ;
+	float Jval_CFC114(time, lev, lat, lon) ;
+		Jval_CFC114:long_name = "Photolysis rate for species CFC114" ;
+		Jval_CFC114:units = "s-1" ;
+		Jval_CFC114:averaging_method = "time-averaged" ;
+	float Jval_CFC113(time, lev, lat, lon) ;
+		Jval_CFC113:long_name = "Photolysis rate for species CFC113" ;
+		Jval_CFC113:units = "s-1" ;
+		Jval_CFC113:averaging_method = "time-averaged" ;
+	float Jval_CFC11(time, lev, lat, lon) ;
+		Jval_CFC11:long_name = "Photolysis rate for species CFC11" ;
+		Jval_CFC11:units = "s-1" ;
+		Jval_CFC11:averaging_method = "time-averaged" ;
+	float Jval_CCl4(time, lev, lat, lon) ;
+		Jval_CCl4:long_name = "Photolysis rate for species CCl4" ;
+		Jval_CCl4:units = "s-1" ;
+		Jval_CCl4:averaging_method = "time-averaged" ;
+	float Jval_BrO(time, lev, lat, lon) ;
+		Jval_BrO:long_name = "Photolysis rate for species BrO" ;
+		Jval_BrO:units = "s-1" ;
+		Jval_BrO:averaging_method = "time-averaged" ;
+	float Jval_BrNO3(time, lev, lat, lon) ;
+		Jval_BrNO3:long_name = "Photolysis rate for species BrNO3" ;
+		Jval_BrNO3:units = "s-1" ;
+		Jval_BrNO3:averaging_method = "time-averaged" ;
+	float Jval_BrNO2(time, lev, lat, lon) ;
+		Jval_BrNO2:long_name = "Photolysis rate for species BrNO2" ;
+		Jval_BrNO2:units = "s-1" ;
+		Jval_BrNO2:averaging_method = "time-averaged" ;
+	float Jval_BrCl(time, lev, lat, lon) ;
+		Jval_BrCl:long_name = "Photolysis rate for species BrCl" ;
+		Jval_BrCl:units = "s-1" ;
+		Jval_BrCl:averaging_method = "time-averaged" ;
+	float Jval_Br2(time, lev, lat, lon) ;
+		Jval_Br2:long_name = "Photolysis rate for species Br2" ;
+		Jval_Br2:units = "s-1" ;
+		Jval_Br2:averaging_method = "time-averaged" ;
+	float Jval_ATOOH(time, lev, lat, lon) ;
+		Jval_ATOOH:long_name = "Photolysis rate for species ATOOH" ;
+		Jval_ATOOH:units = "s-1" ;
+		Jval_ATOOH:averaging_method = "time-averaged" ;
+	float Jval_ALD2(time, lev, lat, lon) ;
+		Jval_ALD2:long_name = "Photolysis rate for species ALD2" ;
+		Jval_ALD2:units = "s-1" ;
+		Jval_ALD2:averaging_method = "time-averaged" ;
+	float Jval_ACET(time, lev, lat, lon) ;
+		Jval_ACET:long_name = "Photolysis rate for species ACET" ;
+		Jval_ACET:units = "s-1" ;
+		Jval_ACET:averaging_method = "time-averaged" ;
+
+// global attributes:
+		:title = "GEOS-Chem diagnostic collection: JValues" ;
+		:history = "" ;
+		:format = "CFIO" ;
+		:conventions = "COARDS" ;
+		:ProdDateTime = "" ;
+		:reference = "www.geos-chem.org; wiki.geos-chem.org" ;
+		:contact = "GEOS-Chem Support Team (geos-chem-support@g.harvard.edu)" ;
+		:simulation_start_date_and_time = "2017-01-01 00:00:00z" ;
+		:simulation_end_date_and_time = "2019-01-01 00:00:00z" ;
+data:
+
+ time = 30, 90, 150, 210, 270, 330, 390, 450, 510, 570, 630, 690, 750, 810, 
+    870, 930, 990, 1050, 1110, 1170, 1230, 1290, 1350, 1410, 1470, 1530, 
+    1590, 1650, 1710, 1770, 1830, 1890, 1950, 2010, 2070, 2130, 2190, 2250, 
+    2310, 2370, 2430, 2490, 2550, 2610, 2670, 2730, 2790, 2850, 2910, 2970, 
+    3030, 3090, 3150, 3210, 3270, 3330, 3390, 3450, 3510, 3570, 3630, 3690, 
+    3750, 3810, 3870, 3930, 3990, 4050, 4110, 4170, 4230, 4290, 4350, 4410, 
+    4470, 4530, 4590, 4650, 4710, 4770, 4830, 4890, 4950, 5010, 5070, 5130, 
+    5190, 5250, 5310, 5370, 5430, 5490, 5550, 5610, 5670, 5730, 5790, 5850, 
+    5910, 5970, 6030, 6090, 6150, 6210, 6270, 6330, 6390, 6450, 6510, 6570, 
+    6630, 6690, 6750, 6810, 6870, 6930, 6990, 7050, 7110, 7170, 7230, 7290, 
+    7350, 7410, 7470, 7530, 7590, 7650, 7710, 7770, 7830, 7890, 7950, 8010, 
+    8070, 8130, 8190, 8250, 8310, 8370, 8430, 8490, 8550, 8610, 8670, 8730, 
+    8790, 8850, 8910, 8970, 9030, 9090, 9150, 9210, 9270, 9330, 9390, 9450, 
+    9510, 9570, 9630, 9690, 9750, 9810, 9870, 9930, 9990, 10050, 10110, 
+    10170, 10230, 10290, 10350, 10410, 10470, 10530, 10590, 10650, 10710, 
+    10770, 10830, 10890, 10950, 11010, 11070, 11130, 11190, 11250, 11310, 
+    11370, 11430, 11490, 11550, 11610, 11670, 11730, 11790, 11850, 11910, 
+    11970, 12030, 12090, 12150, 12210, 12270, 12330, 12390, 12450, 12510, 
+    12570, 12630, 12690, 12750, 12810, 12870, 12930, 12990, 13050, 13110, 
+    13170, 13230, 13290, 13350, 13410, 13470, 13530, 13590, 13650, 13710, 
+    13770, 13830, 13890, 13950, 14010, 14070, 14130, 14190, 14250, 14310, 
+    14370, 14430, 14490, 14550, 14610, 14670, 14730, 14790, 14850, 14910, 
+    14970, 15030, 15090, 15150, 15210, 15270, 15330, 15390, 15450, 15510, 
+    15570, 15630, 15690, 15750, 15810, 15870, 15930, 15990, 16050, 16110, 
+    16170, 16230, 16290, 16350, 16410, 16470, 16530, 16590, 16650, 16710, 
+    16770, 16830, 16890, 16950, 17010, 17070, 17130, 17190, 17250, 17310, 
+    17370, 17430, 17490, 17550, 17610, 17670, 17730, 17790, 17850, 17910, 
+    17970, 18030, 18090, 18150, 18210, 18270, 18330, 18390, 18450, 18510, 
+    18570, 18630, 18690, 18750, 18810, 18870, 18930, 18990, 19050, 19110, 
+    19170, 19230, 19290, 19350, 19410, 19470, 19530, 19590, 19650, 19710, 
+    19770, 19830, 19890, 19950, 20010, 20070, 20130, 20190, 20250, 20310, 
+    20370, 20430, 20490, 20550, 20610, 20670, 20730, 20790, 20850, 20910, 
+    20970, 21030, 21090, 21150, 21210, 21270, 21330, 21390, 21450, 21510, 
+    21570, 21630, 21690, 21750, 21810, 21870, 21930, 21990, 22050, 22110, 
+    22170, 22230, 22290, 22350, 22410, 22470, 22530, 22590, 22650, 22710, 
+    22770, 22830, 22890, 22950, 23010, 23070, 23130, 23190, 23250, 23310, 
+    23370, 23430, 23490, 23550, 23610, 23670, 23730, 23790, 23850, 23910, 
+    23970, 24030, 24090, 24150, 24210, 24270, 24330, 24390, 24450, 24510, 
+    24570, 24630, 24690, 24750, 24810, 24870, 24930, 24990, 25050, 25110, 
+    25170, 25230, 25290, 25350, 25410, 25470, 25530, 25590, 25650, 25710, 
+    25770, 25830, 25890, 25950, 26010, 26070, 26130, 26190, 26250, 26310, 
+    26370, 26430, 26490, 26550, 26610, 26670, 26730, 26790, 26850, 26910, 
+    26970, 27030, 27090, 27150, 27210, 27270, 27330, 27390, 27450, 27510, 
+    27570, 27630, 27690, 27750, 27810, 27870, 27930, 27990, 28050, 28110, 
+    28170, 28230, 28290, 28350, 28410, 28470, 28530, 28590, 28650, 28710, 
+    28770, 28830, 28890, 28950, 29010, 29070, 29130, 29190, 29250, 29310, 
+    29370, 29430, 29490, 29550, 29610, 29670, 29730, 29790, 29850, 29910, 
+    29970, 30030, 30090, 30150, 30210, 30270, 30330, 30390, 30450, 30510, 
+    30570, 30630, 30690, 30750, 30810, 30870, 30930, 30990, 31050, 31110, 
+    31170, 31230, 31290, 31350, 31410, 31470, 31530, 31590, 31650, 31710, 
+    31770, 31830, 31890, 31950, 32010, 32070, 32130, 32190, 32250, 32310, 
+    32370, 32430, 32490, 32550, 32610, 32670, 32730, 32790, 32850, 32910, 
+    32970, 33030, 33090, 33150, 33210, 33270, 33330, 33390, 33450, 33510, 
+    33570, 33630, 33690, 33750, 33810, 33870, 33930, 33990, 34050, 34110, 
+    34170, 34230, 34290, 34350, 34410, 34470, 34530, 34590, 34650, 34710, 
+    34770, 34830, 34890, 34950, 35010, 35070, 35130, 35190, 35250, 35310, 
+    35370, 35430, 35490, 35550, 35610, 35670, 35730, 35790, 35850, 35910, 
+    35970, 36030, 36090, 36150, 36210, 36270, 36330, 36390, 36450, 36510, 
+    36570, 36630, 36690, 36750, 36810, 36870, 36930, 36990, 37050, 37110, 
+    37170, 37230, 37290, 37350, 37410, 37470, 37530, 37590, 37650, 37710, 
+    37770, 37830, 37890, 37950, 38010, 38070, 38130, 38190, 38250, 38310, 
+    38370, 38430, 38490, 38550, 38610, 38670, 38730, 38790, 38850, 38910, 
+    38970, 39030, 39090, 39150, 39210, 39270, 39330, 39390, 39450, 39510, 
+    39570, 39630, 39690, 39750, 39810, 39870, 39930, 39990, 40050, 40110, 
+    40170, 40230, 40290, 40350, 40410, 40470, 40530, 40590, 40650, 40710, 
+    40770, 40830, 40890, 40950, 41010, 41070, 41130, 41190, 41250, 41310, 
+    41370, 41430, 41490, 41550, 41610, 41670, 41730, 41790, 41850, 41910, 
+    41970, 42030, 42090, 42150, 42210, 42270, 42330, 42390, 42450, 42510, 
+    42570, 42630, 42690, 42750, 42810, 42870, 42930, 42990, 43050, 43110, 
+    43170, 43230, 43290, 43350, 43410, 43470, 43530, 43590, 43650, 43710, 
+    43770, 43830, 43890, 43950, 44010, 44070, 44130, 44190, 44250, 44310, 
+    44370, 44430, 44490, 44550, 44610 ;
+
+ lev = 0.99250002413, 0.97749990013, 0.962499776, 0.947499955, 0.93250006, 
+    0.91749991, 0.90249991, 0.88749996, 0.87249996, 0.85750006, 0.842500125, 
+    0.82750016, 0.8100002, 0.78750002, 0.762499965, 0.737500105, 0.7125001, 
+    0.6875001, 0.65625015, 0.6187502, 0.58125015, 0.5437501, 0.5062501, 
+    0.4687501, 0.4312501, 0.3937501, 0.3562501, 0.31279158, 0.26647905, 
+    0.2265135325, 0.192541016587707, 0.163661504087706, 0.139115, 0.11825, 
+    0.10051436, 0.085439015, 0.06745011, 0.04828166, 0.03427161, 0.024079705, 
+    0.014542271, 0.0066847565, 0.0028636805, 0.00113378455, 0.00041406405, 
+    0.000138674505, 3.8000005e-05 ;
+
+ ilev = 1, 0.98500004826, 0.969999752, 0.9549998, 0.94000011, 0.92500001, 
+    0.90999981, 0.89500001, 0.87999991, 0.86500001, 0.85000011, 0.83500014, 
+    0.82000018, 0.80000022, 0.77499982, 0.75000011, 0.7250001, 0.7000001, 
+    0.6750001, 0.6375002, 0.6000002, 0.5625001, 0.5250001, 0.4875001, 
+    0.4500001, 0.4125001, 0.3750001, 0.3375001, 0.28808306, 0.24487504, 
+    0.208152025, 0.176930008175413, 0.150393, 0.127837, 0.108663, 0.09236572, 
+    0.07851231, 0.05638791, 0.04017541, 0.02836781, 0.0197916, 0.009292942, 
+    0.004076571, 0.00165079, 0.0006167791, 0.000211349, 6.600001e-05, 1e-05 ;
+
+ lat = -89, -86, -82, -78, -74, -70, -66, -62, -58, -54, -50, -46, -42, -38, 
+    -34, -30, -26, -22, -18, -14, -10, -6, -2, 2, 6, 10, 14, 18, 22, 26, 30, 
+    34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 89 ;
+
+ lon = -180, -175, -170, -165, -160, -155, -150, -145, -140, -135, -130, 
+    -125, -120, -115, -110, -105, -100, -95, -90, -85, -80, -75, -70, -65, 
+    -60, -55, -50, -45, -40, -35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 
+    20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 
+    110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175 ;
+}

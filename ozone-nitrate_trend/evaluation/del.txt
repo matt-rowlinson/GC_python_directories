@@ -1,0 +1,124 @@
+netcdf GEOSChem.ConcAfterChem.20190101_0000z {
+dimensions:
+	time = UNLIMITED ; // (31 currently)
+	lev = 72 ;
+	ilev = 73 ;
+	lat = 46 ;
+	lon = 72 ;
+variables:
+	double time(time) ;
+		time:long_name = "Time" ;
+		time:units = "minutes since 2019-01-01 00:00:00" ;
+		time:calendar = "gregorian" ;
+		time:axis = "T" ;
+	double lev(lev) ;
+		lev:long_name = "hybrid level at midpoints ((A/P0)+B)" ;
+		lev:units = "level" ;
+		lev:axis = "Z" ;
+		lev:positive = "up" ;
+		lev:standard_name = "atmosphere_hybrid_sigma_pressure_coordinate" ;
+		lev:formula_terms = "a: hyam b: hybm p0: P0 ps: PS" ;
+	double ilev(ilev) ;
+		ilev:long_name = "hybrid level at interfaces ((A/P0)+B)" ;
+		ilev:units = "level" ;
+		ilev:positive = "up" ;
+		ilev:standard_name = "atmosphere_hybrid_sigma_pressure_coordinate" ;
+		ilev:formula_terms = "a: hyai b: hybi p0: P0 ps: PS" ;
+	double lat(lat) ;
+		lat:long_name = "Latitude" ;
+		lat:units = "degrees_north" ;
+		lat:axis = "Y" ;
+	double lon(lon) ;
+		lon:long_name = "Longitude" ;
+		lon:units = "degrees_east" ;
+		lon:axis = "X" ;
+	double hyam(lev) ;
+		hyam:long_name = "hybrid A coefficient at layer midpoints" ;
+		hyam:units = "hPa" ;
+	double hybm(lev) ;
+		hybm:long_name = "hybrid B coefficient at layer midpoints" ;
+		hybm:units = "1" ;
+	double hyai(ilev) ;
+		hyai:long_name = "hybrid A coefficient at layer interfaces" ;
+		hyai:units = "hPa" ;
+	double hybi(ilev) ;
+		hybi:long_name = "hybrid B coefficient at layer interfaces" ;
+		hybi:units = "1" ;
+	double P0 ;
+		P0:long_name = "reference pressure" ;
+		P0:units = "hPa" ;
+	float AREA(lat, lon) ;
+		AREA:long_name = "Surface area" ;
+		AREA:units = "m2" ;
+	float O3PconcAfterChem(time, lev, lat, lon) ;
+		O3PconcAfterChem:long_name = "O3P concentration immediately after chemistry" ;
+		O3PconcAfterChem:units = "molec cm-3" ;
+		O3PconcAfterChem:averaging_method = "time-averaged" ;
+	float O1DconcAfterChem(time, lev, lat, lon) ;
+		O1DconcAfterChem:long_name = "O1D concentration immediately after chemistry" ;
+		O1DconcAfterChem:units = "molec cm-3" ;
+		O1DconcAfterChem:averaging_method = "time-averaged" ;
+	float HO2concAfterChem(time, lev, lat, lon) ;
+		HO2concAfterChem:long_name = "HO2 concentration immediately after chemistry" ;
+		HO2concAfterChem:units = "mol mol-1" ;
+		HO2concAfterChem:averaging_method = "time-averaged" ;
+	float OHconcAfterChem(time, lev, lat, lon) ;
+		OHconcAfterChem:long_name = "OH concentration immediately after chemistry" ;
+		OHconcAfterChem:units = "molec cm-3" ;
+		OHconcAfterChem:averaging_method = "time-averaged" ;
+
+// global attributes:
+		:title = "GEOS-Chem diagnostic collection: ConcAfterChem" ;
+		:history = "" ;
+		:format = "not found" ;
+		:conventions = "COARDS" ;
+		:ProdDateTime = "" ;
+		:reference = "www.geos-chem.org; wiki.geos-chem.org" ;
+		:contact = "GEOS-Chem Support Team (geos-chem-support@g.harvard.edu)" ;
+		:simulation_start_date_and_time = "2019-01-01 00:00:00z" ;
+		:simulation_end_date_and_time = "2019-07-01 00:00:00z" ;
+data:
+
+ time = 720, 2160, 3600, 5040, 6480, 7920, 9360, 10800, 12240, 13680, 15120, 
+    16560, 18000, 19440, 20880, 22320, 23760, 25200, 26640, 28080, 29520, 
+    30960, 32400, 33840, 35280, 36720, 38160, 39600, 41040, 42480, 43920 ;
+
+ lev = 0.99250002413, 0.97749990013, 0.962499776, 0.947499955, 0.93250006, 
+    0.91749991, 0.90249991, 0.88749996, 0.87249996, 0.85750006, 0.842500125, 
+    0.82750016, 0.8100002, 0.78750002, 0.762499965, 0.737500105, 0.7125001, 
+    0.6875001, 0.65625015, 0.6187502, 0.58125015, 0.5437501, 0.5062501, 
+    0.4687501, 0.4312501, 0.3937501, 0.3562501, 0.31279158, 0.26647905, 
+    0.2265135325, 0.192541016587707, 0.163661504087706, 0.139115, 0.11825, 
+    0.10051436, 0.085439015, 0.07255786, 0.06149566, 0.05201591, 0.04390966, 
+    0.03699271, 0.03108891, 0.02604911, 0.021761005, 0.01812435, 0.01505025, 
+    0.01246015, 0.010284921, 0.008456392, 0.0069183215, 0.005631801, 
+    0.004561686, 0.003676501, 0.002948321, 0.0023525905, 0.00186788, 
+    0.00147565, 0.001159975, 0.00090728705, 0.0007059566, 0.0005462926, 
+    0.0004204236, 0.0003217836, 0.00024493755, 0.000185422, 0.000139599, 
+    0.00010452401, 7.7672515e-05, 5.679251e-05, 4.0142505e-05, 2.635e-05, 
+    1.5e-05 ;
+
+ ilev = 1, 0.98500004826, 0.969999752, 0.9549998, 0.94000011, 0.92500001, 
+    0.90999981, 0.89500001, 0.87999991, 0.86500001, 0.85000011, 0.83500014, 
+    0.82000018, 0.80000022, 0.77499982, 0.75000011, 0.7250001, 0.7000001, 
+    0.6750001, 0.6375002, 0.6000002, 0.5625001, 0.5250001, 0.4875001, 
+    0.4500001, 0.4125001, 0.3750001, 0.3375001, 0.28808306, 0.24487504, 
+    0.208152025, 0.176930008175413, 0.150393, 0.127837, 0.108663, 0.09236572, 
+    0.07851231, 0.06660341, 0.05638791, 0.04764391, 0.04017541, 0.03381001, 
+    0.02836781, 0.02373041, 0.0197916, 0.0164571, 0.0136434, 0.0112769, 
+    0.009292942, 0.007619842, 0.006216801, 0.005046801, 0.004076571, 
+    0.003276431, 0.002620211, 0.00208497, 0.00165079, 0.00130051, 0.00101944, 
+    0.0007951341, 0.0006167791, 0.0004758061, 0.0003650411, 0.0002785261, 
+    0.000211349, 0.000159495, 0.000119703, 8.934502e-05, 6.600001e-05, 
+    4.758501e-05, 3.27e-05, 2e-05, 1e-05 ;
+
+ lat = -89, -86, -82, -78, -74, -70, -66, -62, -58, -54, -50, -46, -42, -38, 
+    -34, -30, -26, -22, -18, -14, -10, -6, -2, 2, 6, 10, 14, 18, 22, 26, 30, 
+    34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 89 ;
+
+ lon = -180, -175, -170, -165, -160, -155, -150, -145, -140, -135, -130, 
+    -125, -120, -115, -110, -105, -100, -95, -90, -85, -80, -75, -70, -65, 
+    -60, -55, -50, -45, -40, -35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 
+    20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 
+    110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175 ;
+}

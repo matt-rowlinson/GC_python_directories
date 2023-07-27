@@ -1,0 +1,43 @@
+0a1,24
+> 112c112
+> <     --> OFFLINE_SOILNOX        :       true     # 1980-2021
+> ---
+> >     --> OFFLINE_SOILNOX        :       false    # 1980-2021
+> 130c130
+> < 102     ParaNOx                : on    NO/NO2/O3/HNO3
+> ---
+> > 102     ParaNOx                : off    NO/NO2/O3/HNO3
+> 133c133
+> < 103     LightNOx               : on    NO
+> ---
+> > 103     LightNOx               : off   NO
+> 136c136
+> <     --> Use fertilizer NOx     :       true
+> ---
+> >     --> Use fertilizer NOx     :       false
+> 156c156
+> < 111     GFED                   : on    NO/CO/ALK4/ACET/MEK/ALD2/PRPE/C3H8/CH2O/C2H6/SO2/NH3/BCPO/BCPI/OCPO/OCPI/POG1/POG2/MTPA/BENZ/TOLU/XYLE/NAP/EOH/MOH/SOAP
+> ---
+> > 111     GFED                   : on    CO/ALK4/ACET/MEK/ALD2/PRPE/C3H8/CH2O/C2H6/SO2/NH3/BCPO/BCPI/OCPO/OCPI/POG1/POG2/MTPA/BENZ/TOLU/XYLE/NAP/EOH/MOH/SOAP
+> 168c168
+> < 114     FINN                   : off   NO/CO/ALK4/ACET/MEK/ALD2/PRPE/C3H8/CH2O/C2H6/SO2/NH3/BCPI/BCPO/OCPI/OCPO/GLYC/HAC/SOAP
+> ---
+> > 114     FINN                   : off   CO/ALK4/ACET/MEK/ALD2/PRPE/C3H8/CH2O/C2H6/SO2/NH3/BCPI/BCPO/OCPI/OCPO/GLYC/HAC/SOAP
+146a171,178
+> 2069c2069
+> < 0 ICOADS_SHIP_NO $ROOT/ICOADS_SHIP/v2014-07/ICOADS.generic.1x1.nc NO 2002/1-12/1/0 C xy kg/m2/s NO 1/5 10 1
+> ---
+> > 0 ICOADS_SHIP_NO $ROOT/ICOADS_SHIP/v2014-07/ICOADS.generic.1x1.nc NO 2002/1-12/1/0 C xy kg/m2/s NO 1/5/501 10 1
+> 2073c2073
+> < 0 HTAP_SHIP_NO $ROOT/HTAP/v2015-03/EDGAR_HTAP_NO_SHIPS.generic.01x01.nc emi_no 2008-2010/1/1/0 C xy kg/m2/s NO 1/27 10 2
+> ---
+> > 0 HTAP_SHIP_NO $ROOT/HTAP/v2015-03/EDGAR_HTAP_NO_SHIPS.generic.01x01.nc emi_no 2008-2010/1/1/0 C xy kg/m2/s NO 1/27/501 10 2
+232c264,265
+< > 501 SCALE_NOx 0.0 - - - xy unitless 1 
+---
+> > 501 SCALE_NOx 0.0 - - - xy unitless 1
+> > 
+233a267
+> 4008a4016,4017
+235d268
+< 4008a4016

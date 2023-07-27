@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#SBATCH --job-name=timeseries
+#SBATCH --ntasks=1
+#SBATCH --mem=10gb
+#SBATCH --partition=interactive
+#SBATCH --time=00:10:00
+#SBATCH --output=LOGS/timeseries.log
+import sys
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import matplotlib
+matplotlib.use('agg')
+sys.path.append('/users/mjr583/python_lib')
+import GC_tools as GC
+import RowPy as rp
+from CVAO_dict import CVAO_dict as d
+import CVAO_tools as CV
+plt.style.use('seaborn-darkgrid')
+
+inputs=GC.get_arguments()
+rundir=inputs.rundir
+variable=inputs.var
+version=inputs.version
+
+variable='O3'
+version='12.9.3'
+rundir='tropchem_merra_4x5'
+var, lat, lon, lev, time = GC.get_gc_var(rundir, variable, version, year='2016')
+#bench, lat, lon, lev, benchtime = GC.get_gc_var(rundir='benchmark', variable=variable, version='13.0.0', year='2019')
+thirteen, lat, lon, lev, benchtime = GC.get_gc_var(rundir='fullchem_4x5_LVOCfalse', variable=variable, version='GEOS-Chem', year='2016')
+bench=thirteen
+
+delta,interval=GC.find_timestep(time)
+y = rp.find_nearest(lat, 16.9)
+x = rp.find_nearest(lon, -24.9)
+
+bench_time=[]
+for t in range(len(benchtime)):
+    
+    b=bench[t,0,y,x]
+    bench_time.append(b)
+bc=pd.DataFrame({'Value':bench_time}, index=benchtime)
+
+print(bc)
+
+## Get Merge observations
+df=CV.get_from_merge(d[variable])
+df=df[bc.index[0]:bc.index[-1]]
+#df=df.resample(delta).mean()
+print(df)
+f,ax= plt.subplots(figsize=(16,4))
+ax.plot(df.index, df.Value, 'k', label='CVAO')
+#ax.plot(gc.index, gc.Value, 'g', label='v12.9.3')
+ax.plot(bc.index, bc.Value, 'r', label='v13.0.0')
+
+plt.ylabel('%s (%s)' % (d[variable]['abbr'], d[variable]['unit']) )
+
+plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=interval))
+
+plt.ylim((7.5,52.5))
+plt.legend()
+plt.savefig('/users/mjr583/GC/eval_13.0.0/plots/v13_2016_%s.png' )
+plt.close()
+
+#gcmean=gc.resample('M').mean()
+#gc75=gc.resample('M').quantile(.75)
+#gc25=gc.resample('M').quantile(.25)
+
+bcmean=bc.resample('M').mean()
+bc75=bc.resample('M').quantile(.75)
+bc25=bc.resample('M').quantile(.25)
+
+df=CV.get_from_merge(d[variable])
+df=df[bc.index[0]:bc.index[-1]]
+dfmean=df.resample('M').mean()
+df75=df.resample('M').quantile(.75)
+df25=df.resample('M').quantile(.25)
+
+f,ax= plt.subplots(figsize=(6,4))
+ax.plot(dfmean.index, dfmean.Value, 'k', label='CVAO')
+ax.fill_between(dfmean.index, df25.Value,df75.Value, color='grey', alpha=.3)
+
+#ax.plot(gcmean.index, gcmean.Value, 'g', label='v12.9.3')
+#ax.fill_between(gcmean.index, gc25.Value, gc75.Value, color='g', alpha=.3)
+
+ax.plot(bcmean.index, bcmean.Value, 'r', label='v13.0.0')
+ax.fill_between(bcmean.index, bc25.Value, bc75.Value, color='r', alpha=.3)
+
+plt.ylabel('%s (%s)' % (d[variable]['abbr'], d[variable]['unit']) )
+plt.gca().xaxis.set_major_locator(mdates.MonthLocator(interval=interval))
+
+#plt.ylim((7.5,52.5))
+plt.legend()
+plt.savefig('/users/mjr583/GC/eval_13.0.0/plots/v13_std_2016_%s.png' %variable )
+plt.close()

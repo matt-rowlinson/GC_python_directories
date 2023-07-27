@@ -1,0 +1,10 @@
+,Base,Scaled CEDS,% difference,Abs difference
+O3 burden (Tg yr$^{-1}$),313.28,315.57,0.73,2.29
+O3 surface mean (ppbv),25.03,25.98,3.8,0.95
+OH trop mean (mol cm$^{-3} x10^{-6}$),1.01,1.01,-0.01,-0.0
+CO burden (Tg yr$^{-1}$),270.98,276.67,2.1,5.69
+CO surface mean (ppbv),78.37,79.56,1.52,1.19
+NO burden (Tg yr$^{-1}$),0.07,0.07,0.0,0.0
+NO surface mean (ppbv),0.03,0.03,0.0,0.0
+NO2 burden (Tg yr$^{-1}$),0.33,0.3,-9.09,-0.03
+NO2 surface mean (ppbv),0.29,0.24,-17.24,-0.05

@@ -1,0 +1,9 @@
+ 1006  conda install xarray
+ 1008  conda install matplotlib
+ 1010  conda install basemap
+ 1012* conda install ne
+ 1014  conda install scipy
+ 1016  conda install sklearn
+ 1020  conda install dask
+ 1032  conda install cartopy
+ 1043  history | grep "conda install" > H
