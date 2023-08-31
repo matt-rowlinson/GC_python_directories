@@ -156,26 +156,46 @@ def main():
     from lowess_smoother import loess
 
     site = sites[site]
-    rundirs  = ['new_base_4x5','shah_4x5','langmuir_RH_90_4x5']#,'geo_only','geo_only']
-    versions = ['14.1.0','14.1.0','14.1.0']#3.1','13.3.4', '13.4.0']
-    labels = rundirs
-    variables=['NOx']#,'SALAAL','SALCAL','NOx']#,'all_nitrate','NIT','NITs', 'NH3','HNO3','all_sulphate','SO2','SO4','CO','NH4']
+    rundirs  = ['new_base_4x5','langmuir_RH_90_4x5']#,'geo_only','geo_only']
+    versions = ['14.1.0','14.1.0']#3.1','13.3.4', '13.4.0']
+    labels = ['Base','With pNO$_3^-$ photolysis']
+    variables=['NOx']
     years='2015'
-    cs=['#1b9e77','#e7298a','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02']
+    cs=['C0','orange']#,'#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02']
     for v in variables:
         print( v )
         add_times = find_model_output_for_site(ds, rundirs, versions, v, years=years)
         f, ax = plt.subplots(1,1,figsize=(10,4))
-        try:
-            df = load_observations(site, v)[:]#.resample("M").mean()
-            print( df.dropna() )
-            #df=df['2015']
-            df = df.dropna().groupby(df.index.month).mean()
-            print( df )
-            sys.exit()
-            plot( ax, add_times, labels=labels, obs=df, cs=cs)
-        except:
-            plot(ax, add_times, labels=labels, cs=cs)
+        df = load_observations(site, v)[:]#.resample("M").mean()
+        df=df.dropna()
+        #df = df.resample('M').mean()
+        df_ = df.groupby(df.index.month).mean()
+        df0 = df.groupby(df.index.month).quantile(.25)
+        df1 = df.groupby(df.index.month).quantile(.75)
+
+        #df_ = df_.values[:-31]
+        #df0 = df0.values[:-31]
+        #3df1 = df1.values[:-31] #.drop(df.tail(1).index,inplace=True)
+
+        for n in range(len(add_times)):
+            d =  add_times[n][site['save_name']] * 0.75
+            d_ = d.resample('M').mean()
+            d0 = d.resample('M').quantile(.25)
+            d1 = d.resample('M').quantile(.75)
+
+            ax.plot( d_.index, d_, label=labels[n],c=cs[n], zorder=20)
+            ax.fill_between(d_.index,d0,d1,color=cs[n], alpha=.2, label='__'+labels[n],zorder=20)
+        
+        ax.plot( d_.index, df_, c='k',zorder=1, alpha=.5, label=site['site_name'])
+        ax.fill_between(d_.index, df0, df1, alpha=.2, color='k')
+
+        plt.ylabel(f'{v} pptv')
+        plt.legend(loc=0, ncol=3)
+        plt.tight_layout()
+        plt.savefig( f"plots/TEST.NOx-base.png" )
+        plt.close()
+
+        
 
 if __name__ == "__main__":
     main()

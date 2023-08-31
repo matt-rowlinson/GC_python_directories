@@ -167,5 +167,5 @@ if __name__ == "__main__":
         plt.tight_layout()
         plt.savefig(f'bar_plots/LOGGY_NEI_VOCs_barplot_{year}_%s.png' %str(only_land))
         plt.close()
-        #print( "Ethane ratio: ", df["NEI"].values[0] / df["CEDS"].values[0] )
-        #print( "Propane ratio: ", df["NEI"].values[1] / df["CEDS"].values[1] )
+        print( "Ethane ratio: ", df["NEI"].values[0] / df["CEDS"].values[0] )
+        print( "Propane ratio: ", df["NEI"].values[1] / df["CEDS"].values[1] )
